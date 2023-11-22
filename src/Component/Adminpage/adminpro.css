@@ -1,0 +1,137 @@
+.promo-page {
+  width: 80%;
+  margin-top: 100px;
+  margin-bottom: 30px;
+  margin-left: 150px;
+  background: rgba(255, 186, 59, 0.719);
+}
+.promo-main {
+  display: flex;
+}
+.promo-left-layout {
+  margin-left: 10px;
+  margin-top: 20px;
+}
+.promo-num-type {
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+.promo-num-type-top {
+  display: flex;
+}
+.promo-num-type p {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.promo-info {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+.promo-right-layout {
+  margin-top: 20px;
+}
+.promo-img {
+  display: flex;
+}
+.promo-img p {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.promo-right-layout {
+  margin-left: 50px;
+}
+.Entry-number {
+  width: 50px;
+  height: 30px;
+  margin-left: 10px;
+  background: rgba(255, 255, 250, 0.26);
+  color: red;
+  border: 0;
+  outline: none;
+}
+.Entry-type {
+  width: 200px;
+  height: 30px;
+  margin-left: 10px;
+  background: rgba(255, 255, 250, 0.26);
+  color: red;
+  border: 0;
+  outline: none;
+}
+.Entry-comments {
+  width: 410px;
+  border: 0;
+}
+.add-modif-btn {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.add-modif-btn {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.btn-add-pic {
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 150px;
+  height: 50px;
+  background-color: rgb(134, 212, 134);
+  border: 0;
+  border-radius: 5px;
+}
+.btn-del-pic {
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 150px;
+  height: 50px;
+  background-color: rgb(243, 91, 91);
+  border: 0;
+  border-radius: 5px;
+}
+.btn-add-promo {
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 150px;
+  height: 50px;
+  background-color: rgb(134, 212, 134);
+  border: 0;
+  border-radius: 5px;
+}
+.btn-modi-promo {
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 150px;
+  height: 50px;
+  background-color: rgb(255, 160, 36);
+  border: 0;
+  border-radius: 5px;
+}
+.btn-del-promo {
+  margin-left: 10px;
+  width: 150px;
+  height: 30px;
+  background-color: rgb(243, 91, 91);
+  border: 0;
+  border-radius: 5px;
+}
+.promo-bottom-layout {
+  padding-bottom: 3px;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.promo-time {
+  display: flex;
+  margin-top: 10px;
+}
+.promo-time p {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.btn-under {
+  margin-left: 50px;
+  margin-top: -55px;
+}

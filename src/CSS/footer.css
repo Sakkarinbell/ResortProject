@@ -1,0 +1,100 @@
+footer {
+  background: linear-gradient(
+    to right,
+    rgba(241, 161, 12, 0.925),
+    rgba(255, 187, 0, 0.377)
+  );
+  color: #fff;
+  padding: 50px 0 10px;
+  border-top-left-radius: 125px;
+  border-top-right-radius: 125px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.row {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.col {
+  flex-basis: 25%;
+  padding: 10px;
+}
+
+.logo {
+  margin-bottom: 30px;
+}
+
+.col h3 {
+  width: fit-content;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.email-id {
+  width: fit-content;
+  border-bottom: 1px solid rgb(105, 83, 42);
+  margin: 20px 0;
+}
+
+ul li {
+  list-style: none;
+  margin-bottom: 12px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.form1 {
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc(105, 83, 42);
+  margin-bottom: 50px;
+}
+
+.form1 .far {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.form1 input {
+  width: 100%;
+  background: transparent;
+  color: rgb(105, 83, 42);
+  border: 0;
+  outline: none;
+}
+
+.form1 button {
+  background: transparent;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+.form1 button {
+  font-size: 16px;
+  color: rgb(105, 83, 42);
+}
+
+.social-icons .fab {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  color: #000;
+  background: white;
+  margin-right: 15px;
+  cursor: pointer;
+}

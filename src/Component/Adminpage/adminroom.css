@@ -1,0 +1,110 @@
+.room-page {
+  width: 80%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 150px;
+  background: rgba(255, 186, 59, 0.719);
+}
+.room-main {
+  display: flex;
+}
+.room-left-layout {
+  margin-left: 30px;
+  margin-top: 20px;
+}
+.room-num-type {
+  display: flex;
+}
+.room-num-type p {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.room-info {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+.room-right-layout {
+  margin-top: 20px;
+}
+.room-img {
+  display: flex;
+}
+.room-img p {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.room-right-layout {
+  margin-left: 50px;
+}
+.Entry-number {
+  width: 50px;
+  background: rgba(255, 255, 250, 0.26);
+  color: red;
+  border: 0;
+  outline: none;
+}
+.Entry-type {
+  width: 200px;
+  background: rgba(255, 255, 250, 0.26);
+  color: red;
+  border: 0;
+  outline: none;
+}
+.Entry-info {
+  width: 410px;
+  background: rgba(255, 255, 250, 0.26);
+  color: red;
+  border: 0;
+  outline: none;
+}
+.add-modif-btn {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.btn-add-pic {
+  margin-left: 10px;
+  width: 150px;
+  height: 30px;
+  background-color: rgb(134, 212, 134);
+  border: 0;
+  border-radius: 5px;
+}
+.btn-del-pic {
+  margin-left: 10px;
+  width: 150px;
+  height: 30px;
+  background-color: rgb(243, 91, 91);
+  border: 0;
+  border-radius: 5px;
+}
+.btn-add-room {
+  margin-left: 150px;
+  margin-bottom: 10px;
+  width: 150px;
+  height: 30px;
+  background-color: rgb(134, 212, 134);
+  border: 0;
+  border-radius: 5px;
+}
+.btn-modi-room {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: 150px;
+  height: 30px;
+  background-color: rgb(255, 160, 36);
+  border: 0;
+  border-radius: 5px;
+}
+.btn-del-room {
+  margin-left: 10px;
+  width: 150px;
+  height: 30px;
+  background-color: rgb(243, 91, 91);
+  border: 0;
+  border-radius: 5px;
+}
+.room-bottom-layout {
+  padding-bottom: 30px;
+  padding-left: 250px;
+}

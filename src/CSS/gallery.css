@@ -1,0 +1,42 @@
+.gallery {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 9rem;
+}
+
+.gallery-img img {
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+  width: 70%;
+}
+
+.gallery-text {
+  margin-left: 25rem;
+}
+
+.gallery-text h5 {
+  font-size: 22px;
+  font-weight: 600;
+  color: rgb(105, 83, 42);
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  margin-bottom: 20px;
+}
+
+.gallery-text h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.gallery-text p {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 30px;
+  color: #070707ab;
+  margin-bottom: 35px;
+}

@@ -1,0 +1,75 @@
+.room-book-page {
+  width: 80%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 150px;
+  background: rgba(255, 186, 59, 0.719);
+}
+.room-book-main {
+  display: flex;
+}
+.Entry-number {
+  width: 50px;
+  height: 30px;
+
+  background: rgba(255, 255, 250, 0.26);
+  color: red;
+  border: 0;
+  outline: none;
+}
+.Entry-type {
+  width: 200px;
+  height: 30px;
+
+  background: rgba(255, 255, 250, 0.26);
+  color: red;
+  border: 0;
+  outline: none;
+}
+.btn-add {
+  margin-left: 10px;
+  width: 150px;
+  height: 30px;
+  background-color: rgb(134, 212, 134);
+  border: 0;
+  border-radius: 5px;
+}
+.btn-modi {
+  margin-left: 10px;
+  width: 150px;
+  height: 30px;
+  background-color: rgb(255, 160, 36);
+  border: 0;
+  border-radius: 5px;
+}
+.btn-del {
+  margin-left: 10px;
+  width: 150px;
+  height: 30px;
+  background-color: rgb(243, 91, 91);
+  border: 0;
+  border-radius: 5px;
+}
+.room-bottom-layout {
+  padding-bottom: 30px;
+}
+.room-book-btn {
+  margin-top: 200px;
+  text-align: center;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #000000;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}

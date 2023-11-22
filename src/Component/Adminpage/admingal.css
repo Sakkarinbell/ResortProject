@@ -1,0 +1,90 @@
+.gal-page {
+  width: 80%;
+  margin-top: 100px;
+  margin-bottom: 30px;
+  margin-left: 150px;
+  background: rgba(255, 186, 59, 0.719);
+}
+.gal-main {
+  display: flex;
+}
+.gal-left-layout {
+  width: 100%;
+  text-align: center;
+
+  margin-top: 20px;
+}
+.gal-num-type {
+  margin-left: 600px;
+  display: flex;
+}
+.gal-num-type p {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.gal-img {
+  display: flex;
+  margin-top: 20px;
+
+  text-align: center;
+  width: 100%;
+}
+.gal-img p {
+  padding-left: 20px;
+  padding-right: 50px;
+}
+.Entry-number {
+  width: 50px;
+  height: 30px;
+
+  background: rgba(255, 255, 250, 0.26);
+  color: red;
+  border: 0;
+  outline: none;
+}
+.Entry-type {
+  width: 200px;
+  height: 30px;
+
+  background: rgba(255, 255, 250, 0.26);
+  color: red;
+  border: 0;
+  outline: none;
+}
+.add-modif-btn {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.btn-add-pic {
+  margin-left: 10px;
+  width: 150px;
+  height: 50px;
+  background-color: rgb(134, 212, 134);
+  border: 0;
+  border-radius: 5px;
+}
+.btn-del-pic {
+  margin-left: 10px;
+  width: 150px;
+  height: 50px;
+}
+.btn-del-pic {
+  margin-left: 10px;
+  width: 150px;
+  height: 50px;
+  background-color: rgb(243, 91, 91);
+  border: 0;
+  border-radius: 5px;
+}
+.btn-del-clear {
+  margin-left: 10px;
+  width: 150px;
+  height: 30px;
+  background-color: rgb(243, 91, 91);
+  border: 0;
+  border-radius: 5px;
+}
+.gal-bottom-layout {
+  padding-bottom: 30px;
+}
