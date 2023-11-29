@@ -1,32 +1,39 @@
 import { faLock, faEnvelope, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
-import firebase from "../../config/firebase";
+import { auth } from "../../config/firebase";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { fetchUser } from "../../utils/firestores/userCollection";
+import { saveData } from "../../utils/localStorageService";
+import { ROLE, UUID } from "../../utils/constants/storage";
+import routes from "../../utils/routes";
 
 function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const submit = async (e) => {
     e.preventDefault();
     try {
-      const user = await firebase
-        .auth()
-        .signInWithEmailAndPassword(email, pass);
-      if (user) {
-        alert("Login succesfully");
-      }
+      const user = await auth.signInWithEmailAndPassword(email, pass);
+      if (!user.user.uid) return alert("Please check your email or password");
+      const { user: dbUser } = await fetchUser(user.user.uid);
+      if (!dbUser) return alert("Not found user");
+      saveData(UUID, dbUser.id);
+      saveData(ROLE, dbUser.data().role);
+      const redirectRole = routes[dbUser.data().role].redirect;
+      navigate(redirectRole);
     } catch (error) {
       alert(error);
     }
   };
-  const navigate = useNavigate();
+
   return (
     <div className="wrapper">
-      <spam className="icon-close" onClick={() => navigate("/")}>
+      <span className="icon-close" onClick={() => navigate("/")}>
         <FontAwesomeIcon icon={faXmark} />
-      </spam>
+      </span>
       <div className="form-box login_box">
         <h2>Log In</h2>
         <form action="#">

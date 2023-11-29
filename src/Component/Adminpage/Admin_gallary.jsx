@@ -1,94 +1,107 @@
+import { useEffect, useState } from "react";
 import Adminbar from "./Headeradmin";
+import { deleteFile, uploadFile } from "../../utils/firebaseStorage";
+import { FOLDER_GALLERY } from "../../utils/constants/fireStorage";
+import {
+  deleteGallery,
+  fetchGalleries,
+  saveGallery,
+} from "../../utils/firestores/galleryCollection";
 
 function Admingallary() {
+  const [img, setImg] = useState("");
+  const [type, setType] = useState("ROOM");
+  const [name, setName] = useState("");
+  const [imgsUrl, setImgsUrl] = useState([]);
+
+  const onCreateGallery = async (file) => {
+    try {
+      const url = await uploadFile(FOLDER_GALLERY, file);
+      const { id } = await saveGallery(name, url, type);
+      if (id) {
+        setImgsUrl((prev) => [...prev, { name, url, type, id }]);
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const onFetchGallery = async () => {
+    const { galleries } = await fetchGalleries();
+    if (galleries) {
+      setImgsUrl(galleries);
+    }
+  };
+
+  const onDeleteAllery = async (gallery) => {
+    try {
+      await deleteGallery(gallery.id);
+      await deleteFile(gallery.url);
+      const removeURL = imgsUrl.filter((img) => img.id !== gallery.id);
+      setImgsUrl(removeURL);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  useEffect(() => {
+    onFetchGallery();
+  }, []);
   return (
     <>
       <Adminbar />
       <section className="gal-page">
         <div className="gal-main">
-          <div className="gal-left-layout">
-            <div className="gal-num-type">
-              <p>No :</p>
+          <div>
+            {/* <p>PICTURE TYPE :</p> */}
+            <select onChange={(e) => setType(e.target.value)}>
+              <option value="ROOM">ROOM</option>
+              <option value="FACILITIES">FACILITIES</option>
+              <option value="EVENTS">EVENTS</option>
+            </select>
+          </div>
+          <div>
+            <input
+              type="text"
+              width="300"
+              height="300"
+              placeholder="name"
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div>
+            <p>
               <input
-                className="Entry-number"
-                type="number"
-                id="no."
-                name="no."
-                required
+                type="file"
+                width="300"
+                height="300"
+                onChange={(e) => setImg(e.target.files[0])}
               />
-              <p>PICTURE TYPE :</p>
-              <input
-                className="Entry-type"
-                type="text"
-                id="type"
-                name="type"
-                required
-              />
-            </div>
-            <div className="gal-img">
-              <p>
-                <input
-                  type="image"
-                  id="image"
-                  src="image/img9.png"
-                  width="300"
-                  height="300"
-                />
-              </p>
-              <p>
-                <input
-                  type="image"
-                  id="image"
-                  src="image/img9.png"
-                  width="300"
-                  height="300"
-                />
-              </p>
-              <p>
-                <input
-                  type="image"
-                  id="image"
-                  src="image/img9.png"
-                  width="300"
-                  height="300"
-                />
-              </p>
-              <p>
-                <input
-                  type="image"
-                  id="image"
-                  src="image/img9.png"
-                  width="300"
-                  height="300"
-                />
-              </p>
-            </div>
-            <div className="add-modif-btn">
-              <button className="btn-add-pic">ADD</button>
-              <button className="btn-del-pic">DELETE</button>
-            </div>
+            </p>
+          </div>
+          <div>
+            <button
+              className="btn-add-pic"
+              onClick={() => onCreateGallery(img)}
+            >
+              ADD
+            </button>
           </div>
         </div>
-        <div className="gal-bottom-layout">
-          <div className="gal-num-type">
-            <p>No :</p>
-            <input
-              className="Entry-number"
-              type="number"
-              id="no."
-              name="no."
-              required
-            />
-            <p>GALLERY TYPE :</p>
-            <input
-              className="Entry-type"
-              type="text"
-              id="type"
-              name="type"
-              required
-            />
-            <button className="btn-del-clear">DELETE</button>
-          </div>
+        <div className="gal-images">
+          {imgsUrl.map((image) => (
+            <div className="polaroid" key={image.id}>
+              <img
+                src={image.url}
+                alt={image.name}
+                style={{ width: "100%", height: "200px" }}
+              />
+              <div className="container">
+                <p>{image.name}</p>
+              </div>
+              <button onClick={() => onDeleteAllery(image)}>delete</button>
+            </div>
+          ))}
         </div>
       </section>
     </>

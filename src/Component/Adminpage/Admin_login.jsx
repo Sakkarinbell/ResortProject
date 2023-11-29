@@ -1,7 +1,7 @@
 import { faLock, faEnvelope, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
-import firebase from "../../config/firebase";
+import { auth } from "../../config/firebase";
 import { useState } from "react";
 
 function Adminlogin() {
@@ -10,9 +10,7 @@ function Adminlogin() {
   const submit = async (e) => {
     e.preventDefault();
     try {
-      const user = await firebase
-        .auth()
-        .signInWithEmailAndPassword(email, pass);
+      const user = await auth.signInWithEmailAndPassword(email, pass);
       if (user) {
         alert("Login succesfully");
       }

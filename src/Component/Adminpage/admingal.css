@@ -1,5 +1,5 @@
 .gal-page {
-  width: 80%;
+  width: 100%;
   margin-top: 100px;
   margin-bottom: 30px;
   margin-left: 150px;
@@ -7,6 +7,24 @@
 }
 .gal-main {
   display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.gal-images {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.polaroid {
+  width: 80%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+.container {
+  text-align: center;
+  padding: 10px 20px;
 }
 .gal-left-layout {
   width: 100%;

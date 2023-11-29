@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
+import { PATH_GALLERY } from "../utils/constants/path";
+// import { PATH_NEWS } from "../utils/constants/path";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -11,8 +13,8 @@ function Navbar() {
       <nav className="navigation">
         <Link to="/">HOME</Link>
         <Link to="/Accom">ACOMMODATIONS</Link>
-        <Link to="/Promo">NEWS</Link>
-        <Link to="/Gallerymain">GALLERY</Link>
+        {/* <Link to={PATH_NEWS}>NEWS</Link> */}
+        <Link to={PATH_GALLERY}>GALLERY</Link>
         <Link to="/Contactpage">CONTACT</Link>
 
         <button className="btncart" onClick={() => navigate("/Cartpage")}>
