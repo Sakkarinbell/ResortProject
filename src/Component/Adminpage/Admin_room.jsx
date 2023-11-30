@@ -1,21 +1,92 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Adminbar from "./Headeradmin";
-import { uploadFiles } from "../../utils/firebaseStorage";
+import { deleteFile, uploadFiles } from "../../utils/firebaseStorage";
 import { FOLDER_ROOM } from "../../utils/constants/fireStorage";
-import { saveRoom } from "../../utils/firestores/roomCollection";
+import {
+  deleteRoom,
+  fetchRoom,
+  saveRoom,
+  updateRoom,
+} from "../../utils/firestores/roomCollection";
+import { useParams, useNavigate } from "react-router-dom";
+import { PATH_ADMIN_ROOM_LIST } from "../../utils/constants/path";
 
 function Adminroom() {
-  const [total, setTotal] = useState(0);
-  const [type, setType] = useState("");
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [totalRoom, setTotal] = useState(0);
+  const [name, setName] = useState("");
   const [size, setSize] = useState("");
-  const [bed, setBed] = useState("");
-  const [wifi, setWifi] = useState(true);
-  const [breakfast, setBreakfast] = useState(true);
+  const [price, setPrice] = useState(0);
+  const [priceSale, setPriceSale] = useState(0);
   const [files, setFiles] = useState([]);
-  const onCreateRoom = async () => {
-    const resp = await uploadFiles(FOLDER_ROOM, files);
-    await saveRoom(total,size,type,bed,wifi,breakfast,resp)
+  const [images, setImages] = useState([]);
+  const [removeImages, setRemoveImages] = useState([]);
+
+  useEffect(() => {
+    if (id) {
+      onFetcHRoom(id);
+    }
+  }, [id]);
+
+  const onFetcHRoom = async (id) => {
+    try {
+      const { data } = await fetchRoom(id);
+      if (data) {
+        setName(data.name);
+        setTotal(data.totalRoom);
+        setSize(data.size);
+        setPrice(data.price);
+        setPriceSale(data.priceSale);
+        setImages(data.images);
+      }
+    } catch (error) {
+      alert(error.message);
+    }
   };
+  const onCreateRoom = async () => {
+    let imageURLS = [];
+    if (files.length > 0) {
+      const resp = await uploadFiles(FOLDER_ROOM, files);
+      imageURLS = [...resp];
+    }
+    await saveRoom(totalRoom, size, name, price, priceSale, 0, 0, imageURLS);
+  };
+
+  const onDeleteImage = async (url) => {
+    setImages((prev) => prev.filter((imageURL) => imageURL !== url));
+    setRemoveImages((prev) => [...prev, url]);
+  };
+
+  const onEditRoom = async (id) => {
+    try {
+      let imagesURL = [];
+      if (files.length > 0) {
+        const resp = await uploadFiles(FOLDER_ROOM, files);
+        setImages((prev) => [...prev, ...resp]);
+        imagesURL = [...images, ...resp];
+      }
+      if (removeImages.length > 0) {
+        for (let index = 0; index < removeImages.length; index++) {
+          const imageURL = removeImages[index];
+          await deleteFile(imageURL);
+        }
+      }
+      await updateRoom(id, totalRoom, size, name, price, priceSale, imagesURL);
+    } catch (error) {
+      alert("update room error" + error.message);
+    }
+  };
+
+  const onDeleteRoom = async (id) => {
+    try {
+      await deleteRoom(id);
+      navigate(PATH_ADMIN_ROOM_LIST);
+    } catch (error) {
+      alert("delete room failed");
+    }
+  };
+
   return (
     <>
       <Adminbar />
@@ -23,28 +94,46 @@ function Adminroom() {
         <div className="room-main">
           <div className="room-left-layout">
             <div className="room-num-type">
+              <p>ชื่อห้องพัก :</p>
+              <input
+                className="Entry-type"
+                type="text"
+                name="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
               <p>จำนวนห้องทั้งหมด :</p>
               <input
                 className="Entry-number"
                 type="number"
                 id="total"
-                name="total"
-                value={total}
+                name="totalRoom"
+                value={totalRoom}
                 onChange={(e) => setTotal(Number(e.target.value))}
-                required
-              />
-              <p>ประเภทห้อง :</p>
-              <input
-                className="Entry-type"
-                type="text"
-                id="type"
-                name="type"
-                value={type}
-                onChange={(e) => setType(e.target.value)}
                 required
               />
             </div>
             <div className="room-info">
+              <p>ราคา :</p>
+              <input
+                className="Entry-info"
+                type="number"
+                name="price"
+                value={price}
+                onChange={(e) => setPrice(Number(e.target.value))}
+                required
+              />
+              <p>ราคาส่วนลด :</p>
+              <input
+                className="Entry-info"
+                type="text"
+                id="type"
+                name="priceSale"
+                value={priceSale}
+                onChange={(e) => setPriceSale(Number(e.target.value))}
+                required
+              />
               <p>ขนาดห้องพัก :</p>
               <input
                 className="Entry-info"
@@ -53,36 +142,6 @@ function Adminroom() {
                 name="size"
                 value={size}
                 onChange={(e) => setSize(e.target.value)}
-                required
-              />
-              <p>เตียงนอน :</p>
-              <input
-                className="Entry-info"
-                type="text"
-                id="type"
-                name="bed"
-                value={bed}
-                onChange={(e) => setBed(e.target.value)}
-                required
-              />
-              <p>Free WiFi :</p>
-              <input
-                className="Entry-info"
-                type="checkbox"
-                id="type"
-                name="wifi"
-                value={wifi}
-                onChange={(e) => setWifi(e.target.value)}
-                required
-              />
-              <p>อาหารเช้า :</p>
-              <input
-                className="Entry-info"
-                type="checkbox"
-                id="type"
-                name="breakfast"
-                value={breakfast}
-                onChange={(e) => setBreakfast(e.target.value)}
                 required
               />
             </div>
@@ -98,11 +157,30 @@ function Adminroom() {
                 onChange={(e) => setFiles(e.target.files)}
               />
             </div>
+            <div>
+              {images.map((url) => (
+                <>
+                  <img src={url} key={url} alt="images" width={200} />
+                  <button onClick={() => onDeleteImage(url)}>delete</button>
+                </>
+              ))}
+            </div>
           </div>
         </div>
-        <button className="btn-add-room" onClick={() => onCreateRoom()}>
-          ADD
-        </button>
+        {id ? (
+          <div>
+            <button className="btn-add-room" onClick={() => onEditRoom(id)}>
+              Edit
+            </button>
+            <button className="btn-add-room" onClick={() => onDeleteRoom(id)}>
+              DELETE
+            </button>
+          </div>
+        ) : (
+          <button className="btn-add-room" onClick={() => onCreateRoom()}>
+            ADD
+          </button>
+        )}
       </div>
     </>
   );

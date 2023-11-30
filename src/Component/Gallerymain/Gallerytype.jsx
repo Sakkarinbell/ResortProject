@@ -1,28 +1,27 @@
-import { useNavigate } from "react-router-dom";
+import { fetchGalleries } from "../../utils/firestores/galleryCollection";
+import { useState, useEffect } from "react";
 
 function Gallerytype() {
-  const navigate = useNavigate();
+  const [galleries, setGalleries] = useState([]);
+  const onFetchGallery = async () => {
+    const { galleries } = await fetchGalleries();
+    setGalleries(galleries || []);
+  };
+
+  useEffect(() => {
+    onFetchGallery();
+  }, []);
   return (
     <div className="spacex">
       <section className="space">
-        <figure className="container" onClick={() => navigate("/Gallery1")}>
-          <img src="picture/gallery.jpg" alt="sample89" />
-          <figcaption>
-            <h3>ROOM</h3>
-          </figcaption>
-        </figure>
-        <figure className="container" onClick={() => navigate("/Gallery2")}>
-          <img src="picture/pool.jpg" alt="sample94" />
-          <figcaption>
-            <h3>FACILITIES</h3>
-          </figcaption>
-        </figure>
-        <figure className="container" onClick={() => navigate("/Gallery3")}>
-          <img src="picture/gallery.jpg" alt="sample92" />
-          <figcaption>
-            <h3>EVENTS</h3>
-          </figcaption>
-        </figure>
+        {galleries.map((gallery) => (
+          <figure className="container" key={gallery.id}>
+            <img src={gallery.url} alt="sample89" />
+            <figcaption>
+              <h3>{gallery.name}</h3>
+            </figcaption>
+          </figure>
+        ))}
       </section>
     </div>
   );

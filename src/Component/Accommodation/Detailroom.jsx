@@ -1,33 +1,54 @@
+import { useState, useEffect } from "react";
 import Navbar from "../Navbar";
-import { useNavigate } from "react-router-dom";
-
+import { /*useNavigate,*/ useParams } from "react-router-dom";
+import { fetchRoom } from "../../utils/firestores/roomCollection";
 function Detailroom() {
-  const navigate = useNavigate();
+  const { id } = useParams();
+  // const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [size, setSize] = useState("");
+  const [price, setPrice] = useState(0);
+  const [images, setImages] = useState([]);
+  useEffect(() => {
+    if (id) {
+      onFetcHRoom(id);
+    }
+  }, [id]);
+
+  const onFetcHRoom = async (id) => {
+    try {
+      const { data } = await fetchRoom(id);
+      if (data) {
+        setName(data.name);
+        setSize(data.size);
+        setPrice(data.price);
+        setImages(data.images || []);
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
   return (
     <>
       <Navbar />
-      <h1 className="roomname">TWO-BEDROOM BUNGALOW</h1>
-      <a className="btn-detail" onClick={() => navigate("/Accom")}>
-        BACK
-      </a>
+
       <section className="container-detail">
         <div className="slide-container-room">
           <div className="slider-room">
-            <img id="slide-1" src="picture/ex.jpg" alt="#" />
-            <img id="slide-2" src="picture/gallery.jpg" alt="#" />
-            <img id="slide-3" src="picture/pool.jpg" alt="#" />
-            <div className="slider-nav-room">
-              <a href="#slide-1"></a>
-              <a href="#slide-2"></a>
-              <a href="#slide-3"></a>
-            </div>
+            {images.map((url) => (
+              <>
+                <img id="slide-1" src={url} alt="#" />
+              </>
+            ))}
           </div>
         </div>
       </section>
+      <h1 className="roomname">{name}</h1>
+      <h3 className="roomname">{price} ฿</h3>
       <div className="infobox">
         <h3>AMENITIES</h3>
         <p>
-          <span className="sizename">Room Size </span> : 280 ft
+          <span className="sizename">Room Size </span> : {size} ft
         </p>
         <h3>BED</h3>
         <p> • Crib (available upon request)</p>

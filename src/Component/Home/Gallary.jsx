@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { PATH_GALLERY } from "../../utils/constants/path";
 
 function Gallery() {
   const navigate = useNavigate();
@@ -11,11 +12,7 @@ function Gallery() {
           View the photo gallery to inspire your next vacation at Saengthong
           beach Resort
         </p>
-        <a
-          href="#"
-          className="btn-pro"
-          onClick={() => navigate("/Gallerymain")}
-        >
+        <a className="btn-pro" onClick={() => navigate(PATH_GALLERY)}>
           See More
         </a>
       </div>
