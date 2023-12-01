@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,9 +6,15 @@ import {
   PATH_ADMIN_NEWS,
   PATH_ADMIN_ROOM_LIST,
 } from "../../utils/constants/path";
+import { removeData } from "../../utils/localStorageService";
+import { ROLE, UUID } from "../../utils/constants/storage";
 
 function Adminbar() {
-  // const navigate = useNavigate();
+  const onLogout = () => {
+    removeData(UUID);
+    removeData(ROLE);
+    window.location.reload();
+  };
   return (
     <header>
       <img src={"/icon.png"} alt="icon" width={200} />
@@ -19,6 +24,9 @@ function Adminbar() {
         <Link to={PATH_ADMIN_GALLERY}>GALLERY</Link>
         <button className="btncart">
           <FontAwesomeIcon icon={faUser} />
+        </button>
+        <button className="btnLogin-popup" onClick={() => onLogout()}>
+          LOGOUT
         </button>
       </nav>
     </header>

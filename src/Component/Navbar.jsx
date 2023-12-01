@@ -8,13 +8,18 @@ import {
   PATH_HOME,
   PATH_LOGIN,
 } from "../utils/constants/path";
-import { getData } from "../utils/localStorageService";
-import { UUID } from "../utils/constants/storage";
+import { getData, removeData } from "../utils/localStorageService";
+import { ROLE, UUID } from "../utils/constants/storage";
 // import { PATH_NEWS } from "../utils/constants/path";
 
 function Navbar() {
   const navigate = useNavigate();
   const isAuth = getData(UUID);
+  const onLogout = () => {
+    removeData(UUID);
+    removeData(ROLE);
+    navigate(PATH_HOME);
+  };
   return (
     <header className="head">
       <img src={"picture/icon.png"} alt="icon" onClick={() => navigate("/")} />
@@ -24,11 +29,19 @@ function Navbar() {
         <Link to={PATH_GALLERY}>GALLERY</Link>
         <Link to="/Contactpage">CONTACT</Link>
         {isAuth ? (
-          <button className="btncart">
-            <FontAwesomeIcon icon={faUser} />
-          </button>
+          <>
+            <button className="btncart">
+              <FontAwesomeIcon icon={faUser} />
+            </button>
+            <button className="btnLogin-popup" onClick={() => onLogout()}>
+              LOGOUT
+            </button>
+          </>
         ) : (
-          <button className="btnLogin-popup" onClick={() => navigate(PATH_LOGIN)}>
+          <button
+            className="btnLogin-popup"
+            onClick={() => navigate(PATH_LOGIN)}
+          >
             LOGIN
           </button>
         )}

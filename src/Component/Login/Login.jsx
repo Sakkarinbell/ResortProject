@@ -9,7 +9,7 @@ import { saveData } from "../../utils/localStorageService";
 import { ROLE, UUID } from "../../utils/constants/storage";
 import routes from "../../utils/routes";
 
-function Login() {
+function Login({ setRole }) {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
@@ -22,6 +22,7 @@ function Login() {
       if (!dbUser) return alert("Not found user");
       saveData(UUID, dbUser.id);
       saveData(ROLE, dbUser.data().role);
+      setRole(dbUser.data().role);
       const redirectRole = routes[dbUser.data().role].redirect;
       navigate(redirectRole);
     } catch (error) {
