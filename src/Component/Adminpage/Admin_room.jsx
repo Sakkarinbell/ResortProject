@@ -161,7 +161,7 @@ function Adminroom() {
               {images.map((url) => (
                 <>
                   <img src={url} key={url} alt="images" width={200} />
-                  <button onClick={() => onDeleteImage(url)}>delete</button>
+                  <button className="del-pic" onClick={() => onDeleteImage(url)}>delete</button>
                 </>
               ))}
             </div>
@@ -170,10 +170,10 @@ function Adminroom() {
         {id ? (
           <div>
             <button className="btn-add-room" onClick={() => onEditRoom(id)}>
-              Edit
+              Save
             </button>
-            <button className="btn-add-room" onClick={() => onDeleteRoom(id)}>
-              DELETE
+            <button className="btn-delete-room" onClick={() => onDeleteRoom(id)}>
+              Delete
             </button>
           </div>
         ) : (

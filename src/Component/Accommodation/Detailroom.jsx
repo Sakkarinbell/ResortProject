@@ -31,6 +31,32 @@ function Detailroom() {
   return (
     <>
       <Navbar />
+      <h1 className="roomname">{name}</h1>
+      <h3 className="roomname">{price} ฿</h3>
+      <div className="infobox">
+      <h3>Amenities</h3>
+        <p>
+          <span className="sizename">Room size </span> : {size} ft
+        </p>
+        <h3>Bed</h3>
+        <p> • Crib (available upon request)</p>
+        <p> • Rollaway Bed (available upon request)</p>
+        <p> • Connecting Room (available upon request)</p>
+        <h3>Bathroom and toiletries</h3>
+        <p> • Toiletries</p>
+        <h3>Features</h3>
+        <p> • Mini Bar </p>
+        <p> • Coffee and Tea Making Facilities</p>
+        <p> • 42-inch Flat Screen LED TV</p>
+        <p> • Internet on TV & Video on demand</p>
+        <p> • Media Hub & USB Charger</p>
+        <p> • Bedside Touch Screen Control Panel</p>
+        <p> • Safety Box</p>
+        <h3>Internet</h3>
+        <p> • Complimentary LAN & Wireless Internet</p>
+        <h3>Service</h3>
+        <p> • Twice Daily Turndown service</p>
+      </div>
 
       <section className="container-detail">
         <div className="slide-container-room">
@@ -43,32 +69,7 @@ function Detailroom() {
           </div>
         </div>
       </section>
-      <h1 className="roomname">{name}</h1>
-      <h3 className="roomname">{price} ฿</h3>
-      <div className="infobox">
-        <h3>AMENITIES</h3>
-        <p>
-          <span className="sizename">Room Size </span> : {size} ft
-        </p>
-        <h3>BED</h3>
-        <p> • Crib (available upon request)</p>
-        <p> • Rollaway Bed (available upon request)</p>
-        <p> • Connecting Room (available upon request)</p>
-        <h3>Bathroom and toiletries</h3>
-        <p> • Toiletries</p>
-        <h3>FEATURES</h3>
-        <p> • Mini Bar </p>
-        <p> • Coffee and Tea Making Facilities</p>
-        <p> • 42-inch Flat Screen LED TV</p>
-        <p> • Internet on TV & Video on demand</p>
-        <p> • Media Hub & USB Charger</p>
-        <p> • Bedside Touch Screen Control Panel</p>
-        <p> • Safety Box</p>
-        <h3>INTERNET</h3>
-        <p> • Complimentary LAN & Wireless Internet</p>
-        <h3>SERVICE</h3>
-        <p> • Twice Daily Turndown service</p>
-      </div>
+      
     </>
   );
 }

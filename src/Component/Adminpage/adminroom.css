@@ -3,7 +3,7 @@
   margin-top: 30px;
   margin-bottom: 30px;
   margin-left: 150px;
-  background: rgba(255, 186, 59, 0.719);
+  background: #dddddd00;
 }
 .room-main {
   display: flex;
@@ -38,38 +38,35 @@
 }
 .Entry-number {
   width: 50px;
-  background: rgba(255, 255, 250, 0.26);
-  color: red;
+  background: rgb(255, 255, 250);
+  color: black;
   border: 0;
   outline: none;
+  text-align: right;
 }
 .Entry-type {
   width: 200px;
-  background: rgba(255, 255, 250, 0.26);
-  color: red;
+  background: rgb(255, 255, 250);
+  color: rgb(0, 0, 0);
   border: 0;
   outline: none;
+
 }
 .Entry-info {
   width: 410px;
-  background: rgba(255, 255, 250, 0.26);
-  color: red;
+  background: rgb(255, 255, 250);
+  color: rgb(0, 0, 0);
   border: 0;
   outline: none;
+;
+ 
 }
 .add-modif-btn {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 20px;
 }
-.btn-add-pic {
-  margin-left: 10px;
-  width: 150px;
-  height: 30px;
-  background-color: rgb(134, 212, 134);
-  border: 0;
-  border-radius: 5px;
-}
+
 .btn-del-pic {
   margin-left: 10px;
   width: 150px;
@@ -79,14 +76,30 @@
   border-radius: 5px;
 }
 .btn-add-room {
-  margin-left: 150px;
+  margin-top: 10px;
+  margin-left: 23%;
   margin-bottom: 10px;
-  width: 150px;
-  height: 30px;
+  width:  100px;
+  height: 50px;
   background-color: rgb(134, 212, 134);
-  border: 0;
-  border-radius: 5px;
+  
+ 
 }
+.btn-add-room:hover {
+  
+  background-color: rgba(134, 212, 134, 0.699);
+}
+.btn-delete-room {
+  margin-left: 10px;
+  width:  100px;
+  height: 50px;
+  background-color: rgb(243, 91, 91);
+}
+.btn-delete-room:hover {
+  
+  background-color: rgba(243, 91, 91, 0.678);
+}
+
 .btn-modi-room {
   margin-left: 10px;
   margin-bottom: 10px;
@@ -108,3 +121,38 @@
   padding-bottom: 30px;
   padding-left: 250px;
 }
+
+
+
+
+
+.create-btn{
+  background-color: rgb(134, 212, 134);
+  width:  100px;
+  height: 50px;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  margin-left: 94%;
+}
+
+.detail-btn{
+  background-color: rgba(255, 160, 36, 0.507);
+  width:  50px;
+}
+
+.btn-edit{
+  background-color: rgba(255, 160, 36, 0.507);
+  width:  100px;
+  height: 50px;
+  margin-top: 1%;
+  margin-left: 100px;
+}
+
+.btn-delete{
+  background-color: rgb(243, 91, 91);
+  width:  100px;
+  height: 50px;
+  margin-top: 1%;
+  margin-left: 50px;
+}
+

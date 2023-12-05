@@ -34,7 +34,9 @@ function Date() {
             </div>
           </form>
           <button className="btn-date">
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
+           <div className="bb">
+             <FontAwesomeIcon icon={faMagnifyingGlass} />
+           </div>
           </button>
         </div>
       </div>

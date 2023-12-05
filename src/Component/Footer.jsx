@@ -8,7 +8,7 @@ function Footer() {
       <div className="row">
         <div className="col">
           <img src={"picture/icon.png"} className="logo" />
-          <p>Saengthong Beach Resort</p>
+          
         </div>
         <div className="col">
           <h3>Address</h3>
@@ -16,28 +16,9 @@ function Footer() {
           <p>Subdistrict,Laem Sing</p>
           <p>District,Chanthaburi 22130</p>
           <p className="email-id">Saengthongbeach@email.com</p>
-          <h4>081 000 3298</h4>
+          
         </div>
-        <div className="col">
-          <h3>Links</h3>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/Accom">ACOMMODATIONS</Link>
-            </li>
-            <li>
-              <Link to="/Promo">PROMOTIONS</Link>
-            </li>
-            <li>
-              <Link to="/Gallerymain">GALLERY</Link>
-            </li>
-            <li>
-              <Link to="/Contactpage">CONTACT</Link>
-            </li>
-          </ul>
-        </div>
+        
         <div className="col">
           <h3>Newsletter</h3>
           <form className="form1">
@@ -46,10 +27,11 @@ function Footer() {
             <button type="submit">
               <FontAwesomeIcon icon={faArrowRight} />
             </button>
+            
           </form>
-          <div className="social-icons">
-            {/* <FontAwesomeIcon icon={faXTwitter} /> */}
-          </div>
+          <h4>081 000 3298</h4>
+         
+          
         </div>
       </div>
     </footer>

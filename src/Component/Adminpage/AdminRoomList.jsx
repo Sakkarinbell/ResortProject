@@ -19,29 +19,31 @@ function AdminRoomList() {
   return (
     <div>
       <Adminbar />
-      <button onClick={() => navigate(PATH_ADMIN_ROOM)}>create</button>
+      <button className="create-btn" onClick={() => navigate(PATH_ADMIN_ROOM)}>create</button>
+      
       <table>
         <tr>
-          <th>ชื่อห้องพัก</th>
+          <th className="roomname">ชื่อห้องพัก</th>
           <th>จำนวนห้องทั้งหมด</th>
           <th>ราคา</th>
           <th>ราคาส่วนลด</th>
-          <th></th>
+          <th>Modify</th>
         </tr>
         {rooms.map((room) => (
           <tr key={room.id}>
-            <td>{room.name}</td>
+            <td className="roomname">{room.name}</td>
             <td>{room.totalRoom}</td>
             <td>{room.price}</td>
-            <th>{room.priceSale}</th>
+            <td>{room.priceSale}</td>
             <th>
-              <button onClick={() => navigate(`/admin/room/${room.id}`)}>
+              <button className="detail-btn" onClick={() => navigate(`/admin/room/${room.id}`)}>
                 detail
               </button>
             </th>
           </tr>
         ))}
       </table>
+      
     </div>
   );
 }

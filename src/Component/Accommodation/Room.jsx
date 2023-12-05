@@ -12,6 +12,7 @@ import {
   faUtensils,
   faStreetView,
   faWallet,
+  
 } from "@fortawesome/free-solid-svg-icons";
 
 function RoomRec() {
@@ -81,10 +82,16 @@ function RoomRec() {
                 <div className="btn-groups">
                   <button
                     className="buy-now-btn"
-                    onClick={() => navigate(`/room/${room.id}`)}
+                    onClick={() => navigate()}
                   >
                     <FontAwesomeIcon icon={faWallet}></FontAwesomeIcon> Booking
                   </button>
+                  <button
+                  className="add-cart-btn"
+                  onClick={() => navigate(`/room/${room.id}`)}
+                >
+                  View Details
+                </button>
                 </div>
               </div>
             </div>

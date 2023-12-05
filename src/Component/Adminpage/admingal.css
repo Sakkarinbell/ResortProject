@@ -3,7 +3,7 @@
   margin-top: 100px;
   margin-bottom: 30px;
   margin-left: 150px;
-  background: rgba(255, 186, 59, 0.719);
+
 }
 .gal-main {
   display: flex;
@@ -79,21 +79,31 @@
   width: 150px;
   height: 50px;
   background-color: rgb(134, 212, 134);
-  border: 0;
-  border-radius: 5px;
+  border: 1
+ 
+ 
 }
-.btn-del-pic {
-  margin-left: 10px;
-  width: 150px;
-  height: 50px;
+
+.btn-add-pic:hover{
+  background-color: rgba(134, 212, 134, 0.541);
 }
-.btn-del-pic {
-  margin-left: 10px;
-  width: 150px;
-  height: 50px;
+
+
+
+.del-pic {
+  margin-left: 85%;
+  height: 30px;
   background-color: rgb(243, 91, 91);
-  border: 0;
-  border-radius: 5px;
+  border: 0.5;
+  
+}
+
+.del-pic:hover
+{
+  margin-left: 85%;
+  height: 30px;
+  background-color: rgba(243, 91, 91, 0.685);
+  border: 1;
 }
 .btn-del-clear {
   margin-left: 10px;
@@ -106,3 +116,5 @@
 .gal-bottom-layout {
   padding-bottom: 30px;
 }
+
+

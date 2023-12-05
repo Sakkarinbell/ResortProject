@@ -6,11 +6,15 @@
   gap: 9rem;
 }
 
+
 .gallery-img img {
   height: auto;
-  border-radius: 10px;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  background-image: url(picture/201.png);
+
+ 
   width: 70%;
+ 
 }
 
 .gallery-text {
@@ -20,7 +24,7 @@
 .gallery-text h5 {
   font-size: 22px;
   font-weight: 600;
-  color: rgb(105, 83, 42);
+  color: rgb(0, 0, 0);
   text-transform: uppercase;
   letter-spacing: 6px;
   margin-bottom: 20px;
@@ -40,3 +44,4 @@
   color: #070707ab;
   margin-bottom: 35px;
 }
+

@@ -99,7 +99,7 @@ function Admingallary() {
               <div className="container">
                 <p>{image.name}</p>
               </div>
-              <button onClick={() => onDeleteAllery(image)}>delete</button>
+              <button className="del-pic" onClick={() => onDeleteAllery(image)}>delete</button>
             </div>
           ))}
         </div>
