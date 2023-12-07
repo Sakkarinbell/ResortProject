@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Navbar from "../Navbar";
 import { /*useNavigate,*/ useParams } from "react-router-dom";
 import { fetchRoom } from "../../utils/firestores/roomCollection";
+import Accom from "./Accom";
 function Detailroom() {
   const { id } = useParams();
   // const navigate = useNavigate();
@@ -31,7 +32,7 @@ function Detailroom() {
   return (
     <>
       <Navbar />
-      <h1 className="roomname">{name}</h1>
+      <h1 className="roomname">{name} <button className="btn-book">Booking</button> <button className="btn-back" >Back</button></h1> 
       <h3 className="roomname">{price} ฿</h3>
       <div className="infobox">
       <h3>Amenities</h3>
