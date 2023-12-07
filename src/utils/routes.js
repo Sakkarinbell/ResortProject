@@ -12,6 +12,7 @@ import {
   PATH_ADMIN_NEWS,
   PATH_ADMIN_ROOM,
   PATH_ADMIN_ROOM_LIST,
+  PATH_ADMIN_BOOKING_LIST,
   PATH_DETAILROOM,
   PATH_EDIT_ROOM,
   PATH_GALLERY,
@@ -19,10 +20,13 @@ import {
   PATH_LOGIN,
   PATH_NEWS,
   PATH_SIGNUP,
+  PATH_CONTACT,
 } from "./constants/path";
+import Contact from "../Component/Contact/Contactpage";
 import Promo from "../Component/Promotion/Promomain";
 import Detailroom from "../Component/Accommodation/Detailroom.jsx";
 import AdminRoomList from "../Component/Adminpage/AdminRoomList.jsx";
+import AdminBooking from "../Component/Adminpage/AdminBooking";
 
 const component = {
   home: {
@@ -36,6 +40,10 @@ const component = {
   gallery: {
     path: PATH_GALLERY,
     element: Gallery,
+  },
+  contact: {
+    path: PATH_CONTACT,
+    element: Contact,
   },
   login: {
     path: PATH_LOGIN,
@@ -56,6 +64,10 @@ const component = {
   room: {
     path: PATH_ADMIN_ROOM_LIST,
     element: AdminRoomList,
+  },
+  adminbooking: {
+    path: PATH_ADMIN_BOOKING_LIST,
+    element: AdminBooking,
   },
   createRoom: {
     path: PATH_ADMIN_ROOM,
@@ -85,6 +97,7 @@ export default {
       component.gallery,
       component.acommodation,
       component.detail,
+      component.contact,
     ],
     redirect: PATH_HOME,
   },
@@ -95,13 +108,20 @@ export default {
       component.gallery,
       component.acommodation,
       component.detail,
+      component.contact,
+      component.adminbooking,
+      component.adminNews,
+      component.adminGallery,
+      component.createRoom,
+      component.editRoom,
     ],
-    redirect: PATH_HOME,
+    redirect: PATH_ADMIN_ROOM_LIST,
   },
   admin: {
     allowRoutes: [
       component.room,
       component.home,
+      component.adminbooking,
       component.adminNews,
       component.adminGallery,
       component.createRoom,

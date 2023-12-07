@@ -4,9 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import {
   PATH_ACOMMODATIONS,
+  PATH_CONTACT,
   PATH_GALLERY,
   PATH_HOME,
   PATH_LOGIN,
+  PATH_NEWS,
 } from "../utils/constants/path";
 import { getData, removeData } from "../utils/localStorageService";
 import { ROLE, UUID } from "../utils/constants/storage";
@@ -26,8 +28,9 @@ function Navbar() {
       <nav className="navigation">
         <Link to={PATH_HOME}>HOME</Link>
         <Link to={PATH_ACOMMODATIONS}>ACOMMODATIONS</Link>
+        <Link to={PATH_NEWS}>NEWS</Link>
         <Link to={PATH_GALLERY}>GALLERY</Link>
-        <Link to="/Contactpage">CONTACT</Link>
+        <Link to={PATH_CONTACT}>CONTACT</Link>
         {isAuth ? (
           <>
             <button className="btncart">
