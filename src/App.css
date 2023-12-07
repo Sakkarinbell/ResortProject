@@ -59,7 +59,7 @@ section {
       rgba(10, 10, 10, 0.301),
     rgba(15, 15, 15, 0)
     ),
-    url(picture/room1_row_house/r1.png);
+    url(/r1.png);
   background-size: cover;
   background-position: right center;
   display: flex;

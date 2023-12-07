@@ -24,7 +24,12 @@ function Navbar() {
   };
   return (
     <header className="head">
-      <img src={"picture/icon.png"} alt="icon" onClick={() => navigate("/")} />
+      <img
+        src={"/icon.png"}
+        style={{ width: 240 }}
+        alt="icon"
+        onClick={() => navigate("/")}
+      />
       <nav className="navigation">
         <Link to={PATH_HOME}>HOME</Link>
         <Link to={PATH_ACOMMODATIONS}>ACOMMODATIONS</Link>

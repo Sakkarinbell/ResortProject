@@ -28,7 +28,7 @@ function RoomRec() {
       <h2 className="section__header-1">Reccomend Room</h2>
       <div className="reccomend__grid">
         {rooms
-          .filter((_, index) => index < 4)
+          .filter((_, index) => index < 3)
           .map((room) => (
             <div
               className="reccomend__card"

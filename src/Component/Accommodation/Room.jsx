@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { fetchRooms } from "../../utils/firestores/roomCollection";
-import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import PropTypes from "prop-types";
 import {
   faStar,
   faStarHalfStroke,
@@ -12,23 +10,24 @@ import {
   faUtensils,
   faStreetView,
   faWallet,
-  
 } from "@fortawesome/free-solid-svg-icons";
+import BookingModal from "./BookingModal";
+import { useState } from "react";
 
-function RoomRec() {
+function RoomRec({ rooms }) {
   const navigate = useNavigate();
-  const [rooms, setRooms] = useState([]);
-  const onFetchRooms = async () => {
-    const { data } = await fetchRooms();
-    setRooms(data || []);
+  const [open, setOpen] = useState(false);
+  const [selectRoom, setSelectRoom] = useState("");
+  const [priceRoom, setPriceRoom] = useState(0);
+  const handleOpen = (roomId, price) => {
+    setSelectRoom(roomId);
+    setPriceRoom(price);
+    setOpen(true);
   };
-
-  useEffect(() => {
-    onFetchRooms();
-  }, []);
+  const handleClose = () => setOpen(false);
   return (
     <div className="divroom">
-      {rooms.map((room) => (
+      {rooms?.map((room) => (
         <div className="main-wrapper" key={room.id}>
           <div className="container">
             <div className="roomproduct-div">
@@ -82,22 +81,28 @@ function RoomRec() {
                 <div className="btn-groups">
                   <button
                     className="buy-now-btn"
-                    onClick={() => navigate()}
+                    onClick={() => handleOpen(room.id, room.price)}
                   >
                     <FontAwesomeIcon icon={faWallet}></FontAwesomeIcon> Booking
                   </button>
                   <button
-                  className="add-cart-btn"
-                  onClick={() => navigate(`/room/${room.id}`)}
-                >
-                  View Details
-                </button>
+                    className="add-cart-btn"
+                    onClick={() => navigate(`/room/${room.id}`)}
+                  >
+                    View Details
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       ))}
+      <BookingModal
+        roomId={selectRoom}
+        price={priceRoom}
+        isOpen={open}
+        onCancel={handleClose}
+      />
       {/* <div className="main-wrapper">
         <div className="container">
           <div className="roomproduct-div">
@@ -167,5 +172,9 @@ function RoomRec() {
     </div>
   );
 }
+
+RoomRec.propTypes = {
+  rooms: PropTypes.array,
+};
 
 export default RoomRec;

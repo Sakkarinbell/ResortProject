@@ -98,7 +98,7 @@ function Signup() {
           <div className="login-register">
             <p>
               Already a member?
-              <Link to="/Login" className="login-link">
+              <Link to="/login" className="login-link">
                 Log In
               </Link>
             </p>

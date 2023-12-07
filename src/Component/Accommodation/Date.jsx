@@ -1,7 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import { getData } from "../../utils/localStorageService";
+import { CHECK_IN, CHECK_OUT, GUEST } from "../../utils/constants/storage";
+import PropTypes from "prop-types";
 
-function Date() {
+function Date({ onSearch }) {
+  const [checkIn, setCheckIn] = useState(getData(CHECK_IN));
+  const [checkOut, setCheckOut] = useState(getData(CHECK_OUT));
+  const [guest, setGuest] = useState(getData(GUEST) || 0);
+
   return (
     <div className="section__container header__container">
       <div className="header__image__container">
@@ -13,35 +21,54 @@ function Date() {
           <form>
             <div className="form__group">
               <div className="input__group">
-                <input type="date" />
+                <input
+                  type="date"
+                  value={checkIn}
+                  onChange={(e) => setCheckIn(e.target.value)}
+                />
                 <label>Check In</label>
               </div>
               <p>Add date</p>
             </div>
             <div className="form__group">
               <div className="input__group">
-                <input type="date" />
+                <input
+                  type="date"
+                  value={checkOut}
+                  onChange={(e) => setCheckOut(e.target.value)}
+                />
                 <label>Check Out</label>
               </div>
               <p>Add date</p>
             </div>
             <div className="form__group">
               <div className="input__group">
-                <input type="number" />
+                <input
+                  type="number"
+                  value={guest}
+                  onChange={(e) => setGuest(e.target.value)}
+                />
                 <label>Guests</label>
               </div>
               <p>Add guests</p>
             </div>
           </form>
           <button className="btn-date">
-           <div className="bb">
-             <FontAwesomeIcon icon={faMagnifyingGlass} />
-           </div>
+            <div className="bb">
+              <FontAwesomeIcon
+                icon={faMagnifyingGlass}
+                onClick={() => onSearch(checkIn, checkOut, guest)}
+              />
+            </div>
           </button>
         </div>
       </div>
     </div>
   );
 }
+
+Date.propTypes = {
+  onSearch: PropTypes.func,
+};
 
 export default Date;

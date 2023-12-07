@@ -104,18 +104,15 @@ export default {
   user: {
     allowRoutes: [
       component.home,
+      component.login,
+      component.signup,
       component.news,
       component.gallery,
       component.acommodation,
       component.detail,
       component.contact,
-      component.adminbooking,
-      component.adminNews,
-      component.adminGallery,
-      component.createRoom,
-      component.editRoom,
     ],
-    redirect: PATH_ADMIN_ROOM_LIST,
+    redirect: PATH_HOME,
   },
   admin: {
     allowRoutes: [
