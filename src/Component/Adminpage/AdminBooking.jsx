@@ -25,12 +25,12 @@ function Adminstatusroom() {
         <table>
           <tr>
             <th className="roomname">NO.</th>
-            <th>รหัสห้อง</th>
-            <th>รหัสผู้ใช้งาน</th>
+            <th>Room ID</th>
+            <th>User ID</th>
             <th>Phone number</th>
             <th>Check in</th>
             <th>Check out</th>
-            <th>GUEST</th>
+            <th>Guest</th>
             <th>Status</th>
           </tr>
           {bookings.map((booking, index) => (

@@ -9,8 +9,8 @@ function Promotions() {
       </div>
       <div className="promotion-text">
         <h5>News</h5>
-        <h2>Promotions</h2>
-        <p>Enjoy our deal and packages</p>
+        <h2>Dophin Show</h2>
+        <p>Get ticket Dophin Show Free</p>
         <a href="#" className="btn-pro" onClick={() => navigate("/Promo")}>
           See More
         </a>

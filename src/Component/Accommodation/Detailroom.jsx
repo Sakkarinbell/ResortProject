@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import Navbar from "../Navbar";
-import { /*useNavigate,*/ useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { fetchRoom } from "../../utils/firestores/roomCollection";
-import Accom from "./Accom";
+// import Accom from "./Accom";
+import { PATH_ACOMMODATIONS } from "../../utils/constants/path";
 function Detailroom() {
   const { id } = useParams();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [size, setSize] = useState("");
   const [price, setPrice] = useState(0);
@@ -32,10 +33,18 @@ function Detailroom() {
   return (
     <>
       <Navbar />
-      <h1 className="roomname">{name} <button className="btn-book">Booking</button> <button className="btn-back" >Back</button></h1> 
+      <h1 className="roomname">
+        {name} <button className="btn-book">Booking</button>{" "}
+        <button
+          className="btn-back"
+          onClick={() => navigate(PATH_ACOMMODATIONS)}
+        >
+          Back
+        </button>
+      </h1>
       <h3 className="roomname">{price} ฿</h3>
       <div className="infobox">
-      <h3>Amenities</h3>
+        <h3>Amenities</h3>
         <p>
           <span className="sizename">Room size </span> : {size} ft
         </p>
@@ -70,7 +79,6 @@ function Detailroom() {
           </div>
         </div>
       </section>
-      
     </>
   );
 }

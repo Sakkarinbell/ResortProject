@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -8,7 +8,6 @@ function Footer() {
       <div className="row">
         <div className="col">
           <img src={"picture/icon.png"} className="logo" />
-          
         </div>
         <div className="col">
           <h3>Address</h3>
@@ -16,9 +15,8 @@ function Footer() {
           <p>Subdistrict,Laem Sing</p>
           <p>District,Chanthaburi 22130</p>
           <p className="email-id">Saengthongbeach@email.com</p>
-          
         </div>
-        
+
         <div className="col">
           <h3>Newsletter</h3>
           <form className="form1">
@@ -27,11 +25,8 @@ function Footer() {
             <button type="submit">
               <FontAwesomeIcon icon={faArrowRight} />
             </button>
-            
           </form>
           <h4>081 000 3298</h4>
-         
-          
         </div>
       </div>
     </footer>
