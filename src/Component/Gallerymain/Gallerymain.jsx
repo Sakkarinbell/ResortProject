@@ -6,6 +6,7 @@ function Gallarymain() {
   return (
     <>
       <Navbar />
+      <h1 className="gallery-head">Gallery</h1>
       <Gallerytype />
       {/* <Footer /> */}
     </>

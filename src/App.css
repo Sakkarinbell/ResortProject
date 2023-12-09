@@ -500,7 +500,7 @@ section {
 
 .space {
   padding: 0px;
-  margin-top: 150px;
+ 
   margin-left: 19rem;
 }
 
@@ -727,7 +727,7 @@ component.contact,
 
 .space {
   padding: 50px;
-  margin-top: 150px;
+  
 }
 
 .bb {
@@ -851,3 +851,7 @@ component.contact,
   }
 }
 
+.gallery-head{
+  text-align: center;
+  margin-top: 50px;
+}
