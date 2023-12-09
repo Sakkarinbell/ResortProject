@@ -23,10 +23,10 @@ function AdminRoomList() {
       
       <table>
         <tr>
-          <th className="roomname">ชื่อห้องพัก</th>
-          <th>จำนวนห้องทั้งหมด</th>
-          <th>ราคา</th>
-          <th>ราคาส่วนลด</th>
+          <th className="roomname">Room name</th>
+          <th>Total room</th>
+          <th>Price</th>
+          <th>Discount</th>
           <th>Modify</th>
         </tr>
         {rooms.map((room) => (

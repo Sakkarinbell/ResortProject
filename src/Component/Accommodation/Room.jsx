@@ -10,6 +10,8 @@ import {
   faUtensils,
   faStreetView,
   faWallet,
+  faTrash,
+  faCirclePlus,
 } from "@fortawesome/free-solid-svg-icons";
 import BookingModal from "./BookingModal";
 import { useState } from "react";
@@ -26,10 +28,11 @@ function RoomRec({ rooms }) {
   };
   const handleClose = () => setOpen(false);
   return (
+   <div className="all">
     <div className="divroom">
       {rooms?.map((room) => (
         <div className="main-wrapper" key={room.id}>
-          <div className="container">
+          <div className="container-room">
             <div className="roomproduct-div">
               <div className="roomproduct-div-left">
                 <div
@@ -169,7 +172,44 @@ function RoomRec({ rooms }) {
           </div>
         </div>
       </div> */}
+      
     </div>
+    <div className="all-s">
+     <div className="bill-info">
+        <h2>Your stay</h2>
+        <div className="checkin-out">
+         <span>Check-in</span>
+         <span>Check-out</span>
+        </div>
+        <div className="checktime">
+         <span>12/08/2024</span>
+         <span>13/08/2024</span>
+        </div>
+       <hr className="line"></hr>
+       <div className="roomprice-bill">
+         <h4>Room Bangkalow</h4>
+         <h4>800 THB</h4>
+       
+        
+         <p>    x1  </p>
+         <div className="remove">
+          <button><FontAwesomeIcon icon={faTrash}></FontAwesomeIcon> Remove</button>
+         </div>
+        </div>
+        <button className="addroom-bill"><FontAwesomeIcon icon={faCirclePlus}></FontAwesomeIcon> Add room</button>
+        <h4 className="total">Total:</h4>
+    
+
+       </div>
+        
+     
+      
+    
+    
+        
+    </div>
+  </div> 
+    
   );
 }
 

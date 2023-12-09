@@ -376,13 +376,8 @@ section {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: linear-gradient(
-      to right,
-      rgb(241, 161, 12),
-    rgba(255, 187, 0, 0.753)
-    ),
-    url(picture/pool.jpg);
-  background-size: cover;
+  background-color: rgb(255, 197, 6);
+ 
 }
 
 .contact .content {
@@ -494,7 +489,7 @@ section {
 
 .contactForm .inputbox input[type="submit"] {
   width: 100px;
-  background: rgba(255, 186, 59, 0.719);
+  background: rgb(255, 196, 0);
   color: #fff;
   border: none;
   cursor: pointer;
