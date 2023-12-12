@@ -12,7 +12,6 @@ import {
 import { PATH_LOGIN } from "../../utils/constants/path";
 import { saveBookings } from "../../utils/firestores/bookingCollection";
 function BookingModal({ isOpen, onCancel, price, roomId }) {
-  console.log(price);
   const navigate = useNavigate();
   const [amountRoom, setAmountRoom] = useState(0);
   const [phone, setPhone] = useState("");
