@@ -1,6 +1,7 @@
 function Promotioninfo() {
   return (
     <div className="main-wrapper">
+      <h1 className="newshead">News</h1>
       <div className="container">
         <div className="product-div">
           <div className="product-div-left">

@@ -21,12 +21,14 @@ import {
   PATH_NEWS,
   PATH_SIGNUP,
   PATH_CONTACT,
+  PATH_ACCOUNT,
 } from "./constants/path";
 import Contact from "../Component/Contact/Contactpage";
 import Promo from "../Component/Promotion/Promomain";
 import Detailroom from "../Component/Accommodation/Detailroom.jsx";
 import AdminRoomList from "../Component/Adminpage/AdminRoomList.jsx";
 import AdminBooking from "../Component/Adminpage/AdminBooking";
+import Account from "../Component/Account/Account";
 
 const component = {
   home: {
@@ -52,6 +54,10 @@ const component = {
   signup: {
     path: PATH_SIGNUP,
     element: Signup,
+  },
+  account: {
+    path: PATH_ACCOUNT,
+    element: Account,
   },
   acommodation: {
     path: PATH_ACOMMODATIONS,
@@ -111,6 +117,7 @@ export default {
       component.acommodation,
       component.detail,
       component.contact,
+      component.account,
     ],
     redirect: PATH_HOME,
   },

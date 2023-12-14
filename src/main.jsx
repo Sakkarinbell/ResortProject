@@ -15,6 +15,7 @@ import "./Component/Adminpage/admingal.css";
 import "./Component/Adminpage/adminpro.css";
 import "./Component/Adminpage/adminroom.css";
 import "./Component/Adminpage/adminstatroom.css";
+
 import App from "./App";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

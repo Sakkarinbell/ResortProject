@@ -6,6 +6,7 @@ export const PATH_GALLERY = "/gallery";
 export const PATH_ACOMMODATIONS = "/accommodation";
 export const PATH_DETAILROOM = "/room/:id";
 export const PATH_CONTACT = "/contact";
+export const PATH_ACCOUNT = "/account";
 
 // admin
 export const PATH_ADMIN_ROOM = "/admin/room";

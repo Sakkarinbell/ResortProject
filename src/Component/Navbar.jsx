@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import {
+  PATH_ACCOUNT,
   PATH_ACOMMODATIONS,
   PATH_CONTACT,
   PATH_GALLERY,
@@ -39,7 +40,10 @@ function Navbar() {
         {isAuth ? (
           <>
             <button className="btncart">
-              <FontAwesomeIcon icon={faUser} />
+              <FontAwesomeIcon
+                icon={faUser}
+                onClick={() => navigate(PATH_ACCOUNT)}
+              />
             </button>
             <button className="btnLogin-popup" onClick={() => onLogout()}>
               LOGOUT
