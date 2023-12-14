@@ -24,7 +24,7 @@ function Adminstatusroom() {
       <div>
         <table>
           <tr>
-            <th className="roomname">NO.</th>
+            <th>NO.</th>
             <th>Room ID</th>
             <th>User ID</th>
             <th>Phone number</th>

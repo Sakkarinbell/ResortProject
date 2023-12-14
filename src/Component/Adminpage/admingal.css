@@ -93,7 +93,7 @@
 
 
 .del-pic {
-  margin-left: 85%;
+  margin-left: 80%;
   height: 30px;
   background-color: rgba(235, 0, 0, 0);
   border-radius: 4px;
@@ -105,7 +105,7 @@
 
 .del-pic:hover
 {
-  margin-left: 85%;
+  margin-left: 80%;
   height: 30px;
  
   border: 1;

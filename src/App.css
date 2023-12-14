@@ -1,20 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Poppins", sans-serif;
+  box-sizing: border-box ;
+  margin: 0 ;
+  padding: 0 ;
+  font-family: "Poppins", sans-serif  !important;
 }
 
 body {
-  justify-content: center;
-  align-items: center;
-  background-color: #f1f1f1;
+  justify-content: center ;
+  align-items: center ;
+  background-color: #f1f1f1 !important;
 }
 
 section {
-  padding: 70px 17% 60px;
+  padding: 70px 17% 60px ;
 }
 .welcometext2{
   background-color: rgba(255, 255, 255, 0.185);
@@ -47,10 +47,10 @@ section {
 }
 
 .imagebk {
-  position: relative;
+  position: relative !important;
   
-  height: 70vh;
-  width: 100%;
+  height: 70vh !important;
+  width: 100% !important;
   background-image: linear-gradient(
       to top,
       rgba(255, 183, 0, 0),
@@ -59,7 +59,7 @@ section {
       rgba(10, 10, 10, 0.301),
     rgba(15, 15, 15, 0)
     ),
-    url(/r1.png);
+    url(/r1.png) !important;
   background-size: cover;
   background-position: right center;
   display: flex;
@@ -100,9 +100,9 @@ section {
   margin-left: 25rem;
 }
 .promotion-img img {
-  height: auto;
-  padding: 50px;
-  background-image: url(picture/20.png);
+  height: auto !important;
+  padding: 50px !important;
+  background-image: url(picture/20.png) !important;
   
 
 
@@ -232,8 +232,8 @@ section {
 }
 
 .reccomend__card__header h4 {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.2rem !important; 
+  font-weight: 600 ;
 }
 
 .section__header-1 {
@@ -431,6 +431,8 @@ section {
   color: #fff;
   flex-direction: column;
   font-weight: 300;
+  width: 50%;
+  text-align: left;
 }
 .container .contactinfo .box .text h3 {
   font-weight: 600;
@@ -501,7 +503,7 @@ section {
 .space {
   padding: 0px;
  
-  margin-left: 19rem;
+  
 }
 
 component.contact,
@@ -854,4 +856,9 @@ component.contact,
 .gallery-head{
   text-align: center;
   margin-top: 50px;
+}
+
+.newshead{
+  margin-left: 75%;
+  margin-top: 70px;
 }

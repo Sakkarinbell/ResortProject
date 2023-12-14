@@ -7,7 +7,7 @@ function Adminstatusroom() {
       <section className="room-book-page">
         <div className="room-book-main">
           <table>
-            <tr>
+            <tr >
               <th>No.</th>
               <th>Name</th>
               <th>Email</th>
