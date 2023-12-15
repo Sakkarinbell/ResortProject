@@ -46,7 +46,7 @@ label.btn {
 }
 
 .text-light {
-    color: #babbbc !important;
+    color: #bcbaba !important;
 }
 
 
@@ -119,4 +119,21 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
     background-color: #26B4FF;
     height:100px;
     margin-top: 5%;
+}
+.media-body.ml-4{
+    text-align: left;
+    margin-top: 10px;
+}
+
+.text-light.small.mt-1{
+    color: rgba(255, 63, 63, 0.979) !important;
+}
+
+.form-group{
+    text-align: left;
+}
+
+.text-right.mt-3{
+    text-align: right;
+    margin-bottom: 15px;
 }
