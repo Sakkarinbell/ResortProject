@@ -387,12 +387,12 @@ section {
 .contact .content h2 {
   font-size: 36px;
   font-weight: 600;
-  color: #fff;
+  color: #000000;
 }
 
 .contact .content p {
   font-weight: 300;
-  color: #fff;
+  color: #000000;
 }
 
 .contact .container {
@@ -428,7 +428,7 @@ section {
   display: flex;
   margin-left: 20px;
   font-size: 16px;
-  color: #fff;
+  color: #000000;
   flex-direction: column;
   font-weight: 300;
   width: 50%;
@@ -436,7 +436,7 @@ section {
 }
 .container .contactinfo .box .text h3 {
   font-weight: 600;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   font-size: 1rem;
 }
 

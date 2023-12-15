@@ -33,6 +33,7 @@ label.btn {
 .btn.btn-primary {
  background-color: rgb(255, 196, 0) ;
  border:rgb(255, 196, 0)  ;
+ color: black;
 }
 
 .btn.btn-primary:hover {
