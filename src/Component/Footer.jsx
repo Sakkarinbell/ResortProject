@@ -10,7 +10,7 @@ function Footer() {
           <img src={"picture/icon.png"} className="logo" />
         </div>
         <div className="col">
-          <h3>Address</h3>
+          <h5>Address</h5>
           <p>20/2,Pak Nam Laem Sing</p>
           <p>Subdistrict,Laem Sing</p>
           <p>District,Chanthaburi 22130</p>
@@ -18,7 +18,7 @@ function Footer() {
         </div>
 
         <div className="col">
-          <h3>Newsletter</h3>
+          <h5>Newsletter</h5>
           <form className="form1">
             <FontAwesomeIcon icon={faEnvelope} />
             <input type="email" placeholder=" Enter your email id" required />
@@ -26,7 +26,7 @@ function Footer() {
               <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </form>
-          <h4>081 000 3298</h4>
+          <h6>081 000 3298</h6>
         </div>
       </div>
     </footer>
