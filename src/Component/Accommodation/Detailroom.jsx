@@ -1,20 +1,17 @@
 import { useState, useEffect } from "react";
-import { Input } from "antd";
 import Navbar from "../Navbar";
 import { useParams } from "react-router-dom";
 import { fetchRoom } from "../../utils/firestores/roomCollection";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { getData } from "../../utils/localStorageService";
 import {
   CHECK_IN,
   CHECK_OUT,
-  GUEST,
-  UUID,
+  // GUEST,
+  // UUID,
 } from "../../utils/constants/storage";
 import {
   roomBooking,
-  saveBookings,
+  // saveBookings,
 } from "../../utils/firestores/bookingCollection";
 function Detailroom() {
   const { id } = useParams();
@@ -26,9 +23,6 @@ function Detailroom() {
 
   const checkIn = getData(CHECK_IN);
   const checkOut = getData(CHECK_OUT);
-  const [amountRoom, setAmountRoom] = useState(0);
-  const [phone, setPhone] = useState("");
-  const [remain, setRemain] = useState(0);
 
   useEffect(() => {
     if (id) {
@@ -47,41 +41,33 @@ function Detailroom() {
         setImages(data.images || []);
       }
       if (data && booking) {
-        setRemain(data.totalRoom - booking.length);
+        // setRemain(data.totalRoom - booking.length);
       }
     } catch (error) {
       alert(error.message);
     }
   };
 
-  const onIncrease = () => {
-    if (amountRoom >= remain) return;
-    setAmountRoom((pre) => pre + 1);
-  };
-  const onDecrease = () => {
-    if (amountRoom <= 1) return;
-    setAmountRoom((pre) => pre - 1);
-  };
-  const onClickOk = async (totalPrice, totalRoom, phoneNumber) => {
-    try {
-      const userId = getData(UUID);
-      const checkIn = getData(CHECK_IN);
-      const checkOut = getData(CHECK_OUT);
-      const guest = getData(GUEST);
-      await saveBookings(
-        userId,
-        id,
-        checkIn,
-        checkOut,
-        guest,
-        totalPrice,
-        totalRoom,
-        phoneNumber
-      );
-    } catch (error) {
-      alert(error);
-    }
-  };
+  // const onClickOk = async (totalPrice, totalRoom, phoneNumber) => {
+  //   try {
+  //     const userId = getData(UUID);
+  //     const checkIn = getData(CHECK_IN);
+  //     const checkOut = getData(CHECK_OUT);
+  //     const guest = getData(GUEST);
+  //     await saveBookings(
+  //       userId,
+  //       id,
+  //       checkIn,
+  //       checkOut,
+  //       guest,
+  //       totalPrice,
+  //       totalRoom,
+  //       phoneNumber
+  //     );
+  //   } catch (error) {
+  //     alert(error);
+  //   }
+  // };
   return (
     <>
       <Navbar />
@@ -132,60 +118,12 @@ function Detailroom() {
           <h3>Service</h3>
           <p> • Twice Daily Turndown service</p>
         </div>
-        <div className="all-s">
-          <div className="bill-info">
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <h2>Your stay</h2>
-              <p
-                style={{
-                  backgroundColor: "red",
-                  color: "white",
-                  padding: 2,
-                  borderRadius: 6,
-                }}
-              >
-                ว่าง {remain} ห้อง
-              </p>
-            </div>
-            <div className="checkin-out">
-              <span>Check-in</span>
-              <span>Check-out</span>
-            </div>
-            <div className="checktime">
-              <span>{checkIn}</span>
-              <span>{checkOut}</span>
-            </div>
-            <hr className="line"></hr>
-            <div className="roomprice-bill">
-              <h4>{name}</h4>
-              <h4>{price} THB</h4>
-
-              <p> x{amountRoom} </p>
-              <div className="remove">
-                <button onClick={onDecrease}>
-                  <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon> Remove
-                </button>
-              </div>
-            </div>
-            <button className="addroom-bill" onClick={onIncrease}>
-              <FontAwesomeIcon icon={faCirclePlus}></FontAwesomeIcon> Add room
-            </button>
-            <h4 className="total">Total: {amountRoom * price} THB</h4>
-          </div>
-          <div style={{ display: "flex" }}>
-            <Input
-              placeholder="เบอร์ติดต่อ"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-            <button
-              className="btn-book"
-              onClick={() => onClickOk(price * amountRoom, amountRoom, phone)}
-            >
-              Booking
-            </button>
-          </div>
-        </div>
+        <button
+          className="btn-book"
+          // onClick={() => onClickOk(price * amountRoom, amountRoom, phone)}
+        >
+          Booking
+        </button>
       </div>
     </>
   );
