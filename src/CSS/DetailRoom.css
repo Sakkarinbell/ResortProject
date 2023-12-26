@@ -54,6 +54,15 @@
   
 }
 
+.headroomname{
+  text-align: left;
+  margin-left: 200px;
+}
+.priceroomname{
+  text-align: left;
+  margin-left: 200px;
+}
+
 .sizename {
   font-size: 18px;
   font-weight: 500;
