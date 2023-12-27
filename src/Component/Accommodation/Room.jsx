@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { fetchRoom } from "../../utils/firestores/roomCollection";
 import PropTypes from "prop-types";
 import { getData } from "../../utils/localStorageService";
+import BookingModal from "./BookingModal";
 import {
   CHECK_IN,
   CHECK_OUT,
@@ -40,6 +41,16 @@ function RoomRec({ rooms }) {
   const [amountRoom, setAmountRoom] = useState(0);
   const [phone, setPhone] = useState("");
   const [remain, setRemain] = useState(0);
+
+  const [open, setOpen] = useState(false);
+  const [selectRoom, setSelectRoom] = useState("");
+  const [priceRoom, setPriceRoom] = useState(0);
+  const handleOpen = (roomId, price) => {
+    setSelectRoom(roomId);
+    setPriceRoom(price);
+    setOpen(true);
+  };
+  const handleClose = () => setOpen(false);
 
   useEffect(() => {
     if (id) {
@@ -151,7 +162,9 @@ function RoomRec({ rooms }) {
                   <div className="btn-groups">
                     <button
                       className="buy-now-btn"
-                      onClick={() => navigate(`/room/${room.id}`)}
+                      onClick={() =>
+                        onClickOk(price * amountRoom, amountRoom, phone)
+                      }
                     >
                       <FontAwesomeIcon icon={faWallet}></FontAwesomeIcon>{" "}
                       Booking
@@ -162,6 +175,12 @@ function RoomRec({ rooms }) {
             </div>
           </div>
         ))}
+        <BookingModal
+          roomId={selectRoom}
+          price={priceRoom}
+          isOpen={open}
+          onCancel={handleClose}
+        />
       </div>
       <div className="all-s">
         <div className="bill-info">
@@ -209,10 +228,7 @@ function RoomRec({ rooms }) {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
-          <button
-            className="btn-book"
-            onClick={() => onClickOk(price * amountRoom, amountRoom, phone)}
-          >
+          <button className="btn-book" onClick={() => handleOpen()}>
             Booking
           </button>
         </div>
