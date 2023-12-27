@@ -219,6 +219,8 @@
 .remove{
   margin-top: 5px;
   text-decoration:underline;
+  
+  
 }
 
 
@@ -263,4 +265,14 @@
  
  .btn-pay:hover{
    background: #269b24c5;
+ }
+
+ .removeroom{
+  background-color: transparent;
+  border: 0;
+  
+ }
+
+ .removeroom:hover{
+  color: red;
  }
