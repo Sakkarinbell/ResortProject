@@ -22,8 +22,7 @@ import {
   faStreetView,
   faWallet,
   faTrash,
-
-
+  faCirclePlus,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   roomBooking,
@@ -113,9 +112,7 @@ function RoomRec({ rooms }) {
                   </div>
                 </div>
                 <div className="roomproduct-div-right">
-                  <span className="product-name">{room.name} 
-                   <p className="availablerooms">{remain} Room left</p>
-                  </span>
+                  <span className="product-name">{room.name}</span>
                   <span className="product-price">{room.price} ฿</span>
                   <div className="product-rating">
                     <span>
@@ -159,12 +156,6 @@ function RoomRec({ rooms }) {
                       <FontAwesomeIcon icon={faWallet}></FontAwesomeIcon>{" "}
                       Booking
                     </button>
-                    <button
-                    className="add-cart-btn"
-                    onClick={() => navigate(`/room/${room.id}`)}
-                  >
-                    View Details
-                  </button>
                   </div>
                 </div>
               </div>
@@ -176,7 +167,16 @@ function RoomRec({ rooms }) {
         <div className="bill-info">
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <h2>Your stay</h2>
-            
+            <p
+              style={{
+                backgroundColor: "red",
+                color: "white",
+                padding: 2,
+                borderRadius: 6,
+              }}
+            >
+              ว่าง {remain} ห้อง
+            </p>
           </div>
           <div className="checkin-out">
             <span>Check-in</span>
@@ -189,20 +189,19 @@ function RoomRec({ rooms }) {
           <hr className="line"></hr>
           <div className="roomprice-bill">
             <h4>{name}</h4>
-            <p>{price} THB</p>
+            <h4>{price} THB</h4>
 
             <p> x{amountRoom} </p>
             <div className="remove">
-              <button className="removeroom" onClick={onDecrease}>
-                <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon> 
+              <button onClick={onDecrease}>
+                <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon> Remove
               </button>
             </div>
           </div>
-          <div className="total-bill">
-           <h4 className="total">Total:</h4>
-           <h4 className="total-price"> {amountRoom * price} THB</h4>
-          </div>
-          
+          <button className="addroom-bill" onClick={onIncrease}>
+            <FontAwesomeIcon icon={faCirclePlus}></FontAwesomeIcon> Add room
+          </button>
+          <h4 className="total">Total: {amountRoom * price} THB</h4>
         </div>
         <div style={{ display: "flex" }}>
           <Input
@@ -211,10 +210,10 @@ function RoomRec({ rooms }) {
             onChange={(e) => setPhone(e.target.value)}
           />
           <button
-            className="btn-pay"
+            className="btn-book"
             onClick={() => onClickOk(price * amountRoom, amountRoom, phone)}
           >
-           Continue
+            Booking
           </button>
         </div>
       </div>
