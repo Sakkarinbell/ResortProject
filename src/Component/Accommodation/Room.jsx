@@ -123,7 +123,10 @@ function RoomRec({ rooms }) {
                   </div>
                 </div>
                 <div className="roomproduct-div-right">
-                  <span className="product-name">{room.name}</span>
+                  <span className="product-name">
+                    {room.name}
+                    <p className="availablerooms">{remain} Room left</p>
+                  </span>
                   <span className="product-price">{room.price} ฿</span>
                   <div className="product-rating">
                     <span>
@@ -169,6 +172,12 @@ function RoomRec({ rooms }) {
                       <FontAwesomeIcon icon={faWallet}></FontAwesomeIcon>{" "}
                       Booking
                     </button>
+                    <button
+                      className="add-cart-btn"
+                      onClick={() => navigate(`/room/${room.id}`)}
+                    >
+                      View Details
+                    </button>
                   </div>
                 </div>
               </div>
@@ -208,19 +217,22 @@ function RoomRec({ rooms }) {
           <hr className="line"></hr>
           <div className="roomprice-bill">
             <h4>{name}</h4>
-            <h4>{price} THB</h4>
+            <p>{price} THB</p>
 
             <p> x{amountRoom} </p>
             <div className="remove">
-              <button onClick={onDecrease}>
-                <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon> Remove
+              <button className="removeroom" onClick={onDecrease}>
+                <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
               </button>
             </div>
           </div>
           <button className="addroom-bill" onClick={onIncrease}>
             <FontAwesomeIcon icon={faCirclePlus}></FontAwesomeIcon> Add room
           </button>
-          <h4 className="total">Total: {amountRoom * price} THB</h4>
+          <div className="total-bill">
+            <h4 className="total">Total:</h4>
+            <h4 className="total-price"> {amountRoom * price} THB</h4>
+          </div>
         </div>
         <div style={{ display: "flex" }}>
           <Input
@@ -228,8 +240,8 @@ function RoomRec({ rooms }) {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
-          <button className="btn-book" onClick={() => handleOpen()}>
-            Booking
+          <button className="btn-pay" onClick={() => handleOpen()}>
+            Continue
           </button>
         </div>
       </div>
