@@ -34,7 +34,7 @@ function Detailroom() {
     <>
       <Navbar />
       <h1 className="headroomname">
-        {name} <button className="btn-book">Booking</button>{" "}
+        {name} {" "}
         <button
           className="btn-back"
           onClick={() => navigate(PATH_ACOMMODATIONS)}

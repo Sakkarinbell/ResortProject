@@ -25,13 +25,7 @@ function Account() {
                   >
                     Change password
                   </a>
-                  <a
-                    className="list-group-item list-group-item-action"
-                    data-toggle="list"
-                    href="#account-history"
-                  >
-                    History
-                  </a>
+                 
                 </div>
               </div>
               <div className="col-md-9">
@@ -119,11 +113,8 @@ function Account() {
                   <div className="tab-pane fade" id="account-history">
                     <div className="card-body pb-2">
                       <div className="form-group">
-                        <h1>History</h1>
-                        <div className="History">
-                          <h4>Success</h4>
-                          <h4>Detailll.....</h4>
-                        </div>
+                        
+                        
                       </div>
                     </div>
                   </div>

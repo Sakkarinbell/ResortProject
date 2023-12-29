@@ -8,7 +8,7 @@ function Promotions() {
         <img src="picture/loma.jpg" alt="icon" />
       </div>
       <div className="promotion-text">
-        <h5>News</h5>
+        <h5>Events</h5>
         <h2>Dophin Show</h2>
         <p>Get ticket Dophin Show Free</p>
         <a href="#" className="btn-pro" onClick={() => navigate("/Promo")}>
