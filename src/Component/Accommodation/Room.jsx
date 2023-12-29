@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 import { fetchRoom } from "../../utils/firestores/roomCollection";
 import PropTypes from "prop-types";
 import { getData } from "../../utils/localStorageService";
-import BookingModal from "./BookingModal";
 import {
   CHECK_IN,
   CHECK_OUT,
@@ -23,7 +22,8 @@ import {
   faStreetView,
   faWallet,
   faTrash,
-  faCirclePlus,
+
+
 } from "@fortawesome/free-solid-svg-icons";
 import {
   roomBooking,
@@ -41,16 +41,6 @@ function RoomRec({ rooms }) {
   const [amountRoom, setAmountRoom] = useState(0);
   const [phone, setPhone] = useState("");
   const [remain, setRemain] = useState(0);
-
-  const [open, setOpen] = useState(false);
-  const [selectRoom, setSelectRoom] = useState("");
-  const [priceRoom, setPriceRoom] = useState(0);
-  const handleOpen = (roomId, price) => {
-    setSelectRoom(roomId);
-    setPriceRoom(price);
-    setOpen(true);
-  };
-  const handleClose = () => setOpen(false);
 
   useEffect(() => {
     if (id) {
@@ -123,9 +113,8 @@ function RoomRec({ rooms }) {
                   </div>
                 </div>
                 <div className="roomproduct-div-right">
-                  <span className="product-name">
-                    {room.name}
-                    <p className="availablerooms">{remain} Room left</p>
+                  <span className="product-name">{room.name} 
+                   <p className="availablerooms">{remain} Room left</p>
                   </span>
                   <span className="product-price">{room.price} ฿</span>
                   <div className="product-rating">
@@ -165,46 +154,29 @@ function RoomRec({ rooms }) {
                   <div className="btn-groups">
                     <button
                       className="buy-now-btn"
-                      onClick={() =>
-                        onClickOk(price * amountRoom, amountRoom, phone)
-                      }
+                      onClick={() => navigate(`/room/${room.id}`)}
                     >
                       <FontAwesomeIcon icon={faWallet}></FontAwesomeIcon>{" "}
                       Booking
                     </button>
                     <button
-                      className="add-cart-btn"
-                      onClick={() => navigate(`/room/${room.id}`)}
-                    >
-                      View Details
-                    </button>
+                    className="add-cart-btn"
+                    onClick={() => navigate(`/room/${room.id}`)}
+                  >
+                    View Details
+                  </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         ))}
-        <BookingModal
-          roomId={selectRoom}
-          price={priceRoom}
-          isOpen={open}
-          onCancel={handleClose}
-        />
       </div>
       <div className="all-s">
         <div className="bill-info">
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <h2>Your stay</h2>
-            <p
-              style={{
-                backgroundColor: "red",
-                color: "white",
-                padding: 2,
-                borderRadius: 6,
-              }}
-            >
-              ว่าง {remain} ห้อง
-            </p>
+            
           </div>
           <div className="checkin-out">
             <span>Check-in</span>
@@ -222,17 +194,15 @@ function RoomRec({ rooms }) {
             <p> x{amountRoom} </p>
             <div className="remove">
               <button className="removeroom" onClick={onDecrease}>
-                <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon> 
               </button>
             </div>
           </div>
-          <button className="addroom-bill" onClick={onIncrease}>
-            <FontAwesomeIcon icon={faCirclePlus}></FontAwesomeIcon> Add room
-          </button>
           <div className="total-bill">
-            <h4 className="total">Total:</h4>
-            <h4 className="total-price"> {amountRoom * price} THB</h4>
+           <h4 className="total">Total:</h4>
+           <h4 className="total-price"> {amountRoom * price} THB</h4>
           </div>
+          
         </div>
         <div style={{ display: "flex" }}>
           <Input
@@ -240,8 +210,11 @@ function RoomRec({ rooms }) {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
-          <button className="btn-pay" onClick={() => handleOpen()}>
-            Continue
+          <button
+            className="btn-pay"
+            onClick={() => onClickOk(price * amountRoom, amountRoom, phone)}
+          >
+           Continue
           </button>
         </div>
       </div>
