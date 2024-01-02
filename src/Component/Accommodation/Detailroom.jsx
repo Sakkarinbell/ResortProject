@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Input } from "antd";
 import Navbar from "../Navbar";
 import { useParams } from "react-router-dom";
+import { Elements, PaymentElement } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import { fetchRoom } from "../../utils/firestores/roomCollection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faCirclePlus } from "@fortawesome/free-solid-svg-icons";
@@ -16,6 +18,12 @@ import {
   roomBooking,
   saveBookings,
 } from "../../utils/firestores/bookingCollection";
+import CheckoutForm from "./Checkout";
+const stripePromise = loadStripe(
+  // process.env.REACT_APP_STRIPE;
+  "pk_test_51OTzsgF5rcJRccMZZ48q1xfXHvdli3gz6GXINlTgRVb2bmPwFOtD0NrF8wqRfzImzKQV8wQogu6ktt2TCuTL9aKG00OP3WLBjq"
+  // "sk_test_51OTzsgF5rcJRccMZRwGKl8NGMdTy1HpyCC17ql0dw5rFXsne0uIw2eclz24IITwZY9QhZoFzxJWDubJtGSNXiwUX00XaYL6X1j"
+);
 function Detailroom() {
   const { id } = useParams();
   // const navigate = useNavigate();
@@ -35,6 +43,14 @@ function Detailroom() {
       onFetcHRoom(id);
     }
   }, [id]);
+
+  const options = {
+    mode: "payment",
+    amount: 1099,
+    currency: "usd",
+    // Customizable with appearance API.
+    clientSecret: 'sk_test_51OTzsgF5rcJRccMZRwGKl8NGMdTy1HpyCC17ql0dw5rFXsne0uIw2eclz24IITwZY9QhZoFzxJWDubJtGSNXiwUX00XaYL6X1j',
+  };
 
   const onFetcHRoom = async (id) => {
     try {
@@ -83,8 +99,8 @@ function Detailroom() {
     }
   };
   return (
-    <>
-      <Navbar />
+    <Elements stripe={stripePromise} options={options}>
+      {/* <Navbar />
       <section className="container-detail">
         <div className="slide-container-room">
           <div className="slider-room">
@@ -180,14 +196,16 @@ function Detailroom() {
             />
             <button
               className="btn-book"
-              onClick={() => onClickOk(price * amountRoom, amountRoom, phone)}
+              // onClick={() => onClickOk(price * amountRoom, amountRoom, phone)}
             >
               Booking
             </button>
+            
           </div>
         </div>
-      </div>
-    </>
+      </div> */}
+      <CheckoutForm />
+    </Elements>
   );
 }
 
