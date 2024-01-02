@@ -21,12 +21,16 @@ import {
   PATH_NEWS,
   PATH_SIGNUP,
   PATH_CONTACT,
+  PATH_CART,
+  PATH_SUCCESS,
 } from "./constants/path";
 import Contact from "../Component/Contact/Contactpage";
 import Promo from "../Component/Promotion/Promomain";
 import Detailroom from "../Component/Accommodation/Detailroom.jsx";
 import AdminRoomList from "../Component/Adminpage/AdminRoomList.jsx";
 import AdminBooking from "../Component/Adminpage/AdminBooking";
+import Cartpage from "../Component/Cart/Cartpage.jsx";
+import Successed from "../Component/Payment/Success.jsx";
 
 const component = {
   home: {
@@ -85,6 +89,14 @@ const component = {
     path: PATH_ADMIN_GALLERY,
     element: Admingallary,
   },
+  cart: {
+    path: PATH_CART,
+    element: Cartpage,
+  },
+  success: {
+    path: PATH_SUCCESS,
+    element: Successed,
+  },
 };
 
 export default {
@@ -111,6 +123,8 @@ export default {
       component.acommodation,
       component.detail,
       component.contact,
+      component.cart,
+      component.success,
     ],
     redirect: PATH_HOME,
   },

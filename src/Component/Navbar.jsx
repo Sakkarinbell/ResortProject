@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { ShoppingCartOutlined } from "@ant-design/icons";
+import { Badge } from "antd";
 import {
   PATH_ACOMMODATIONS,
+  PATH_CART,
   PATH_CONTACT,
   PATH_GALLERY,
   PATH_HOME,
@@ -11,12 +14,13 @@ import {
   PATH_NEWS,
 } from "../utils/constants/path";
 import { getData, removeData } from "../utils/localStorageService";
-import { ROLE, UUID } from "../utils/constants/storage";
+import { CART, ROLE, UUID } from "../utils/constants/storage";
 // import { PATH_NEWS } from "../utils/constants/path";
 
 function Navbar() {
   const navigate = useNavigate();
   const isAuth = getData(UUID);
+  const carts = getData(CART);
   const onLogout = () => {
     removeData(UUID);
     removeData(ROLE);
@@ -35,9 +39,15 @@ function Navbar() {
         <Link to={PATH_ACOMMODATIONS}>ACOMMODATIONS</Link>
         <Link to={PATH_NEWS}>NEWS</Link>
         <Link to={PATH_GALLERY}>GALLERY</Link>
+
         <Link to={PATH_CONTACT}>CONTACT</Link>
         {isAuth ? (
           <>
+            <Badge count={carts ? JSON.parse(carts).length : 0}>
+              <Link to={PATH_CART}>
+                <ShoppingCartOutlined />
+              </Link>
+            </Badge>
             <button className="btncart">
               <FontAwesomeIcon icon={faUser} />
             </button>

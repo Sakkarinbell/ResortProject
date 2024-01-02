@@ -1,6 +1,5 @@
 import { db } from "../../config/firebase";
 import { BOOKING_COLLECTION } from "../constants/db";
-import { PENDING } from "../constants/status";
 
 export const fetchBookings = async () => {
   try {
@@ -42,20 +41,40 @@ export const saveBookings = async (
   checkIn,
   checkOut,
   guest,
-  totalPrice,
+  price,
   totalRoom,
-  phoneNumber
+  status,
+  billId
 ) => {
   const data = await db.collection(BOOKING_COLLECTION).add({
+    billId,
     userId,
     roomId,
     checkIn,
     checkOut,
     guest,
-    totalPrice,
+    price,
     totalRoom,
-    phoneNumber,
-    status: PENDING,
+    status,
   });
   return { success: true, message: "save booking success", id: data.id };
+};
+
+export const updateBooking = async (billId, status) => {
+  const booking = await db
+    .collection(BOOKING_COLLECTION)
+    .where("billId", "==", billId)
+    .get();
+  const docs = booking.docs;
+  for (let index = 0; index < docs.length; index++) {
+    const doc = docs[index];
+    const data = doc.data();
+    console.log("data", data);
+    if (data.status !== status) {
+      await db.collection(BOOKING_COLLECTION).doc(doc.id).set({
+        ...data,
+        status,
+      });
+    }
+  }
 };

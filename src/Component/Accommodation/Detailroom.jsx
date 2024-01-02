@@ -1,32 +1,24 @@
 import { useState, useEffect } from "react";
-import { Input } from "antd";
+// import { Input } from "antd";
 import Navbar from "../Navbar";
-import { useParams } from "react-router-dom";
-import { Elements, PaymentElement } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
+import { useParams, useNavigate } from "react-router-dom";
 import { fetchRoom } from "../../utils/firestores/roomCollection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faCirclePlus } from "@fortawesome/free-solid-svg-icons";
-import { getData } from "../../utils/localStorageService";
+import { getData, saveData } from "../../utils/localStorageService";
 import {
+  CART,
   CHECK_IN,
   CHECK_OUT,
   GUEST,
   UUID,
 } from "../../utils/constants/storage";
-import {
-  roomBooking,
-  saveBookings,
-} from "../../utils/firestores/bookingCollection";
-import CheckoutForm from "./Checkout";
-const stripePromise = loadStripe(
-  // process.env.REACT_APP_STRIPE;
-  "pk_test_51OTzsgF5rcJRccMZZ48q1xfXHvdli3gz6GXINlTgRVb2bmPwFOtD0NrF8wqRfzImzKQV8wQogu6ktt2TCuTL9aKG00OP3WLBjq"
-  // "sk_test_51OTzsgF5rcJRccMZRwGKl8NGMdTy1HpyCC17ql0dw5rFXsne0uIw2eclz24IITwZY9QhZoFzxJWDubJtGSNXiwUX00XaYL6X1j"
-);
+import { roomBooking } from "../../utils/firestores/bookingCollection";
+import { PATH_LOGIN } from "../../utils/constants/path";
+
 function Detailroom() {
   const { id } = useParams();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [size, setSize] = useState("");
   const [price, setPrice] = useState(0);
@@ -35,7 +27,7 @@ function Detailroom() {
   const checkIn = getData(CHECK_IN);
   const checkOut = getData(CHECK_OUT);
   const [amountRoom, setAmountRoom] = useState(0);
-  const [phone, setPhone] = useState("");
+  // const [phone, setPhone] = useState("");
   const [remain, setRemain] = useState(0);
 
   useEffect(() => {
@@ -43,14 +35,6 @@ function Detailroom() {
       onFetcHRoom(id);
     }
   }, [id]);
-
-  const options = {
-    mode: "payment",
-    amount: 1099,
-    currency: "usd",
-    // Customizable with appearance API.
-    clientSecret: 'sk_test_51OTzsgF5rcJRccMZRwGKl8NGMdTy1HpyCC17ql0dw5rFXsne0uIw2eclz24IITwZY9QhZoFzxJWDubJtGSNXiwUX00XaYL6X1j',
-  };
 
   const onFetcHRoom = async (id) => {
     try {
@@ -78,29 +62,41 @@ function Detailroom() {
     if (amountRoom <= 1) return;
     setAmountRoom((pre) => pre - 1);
   };
-  const onClickOk = async (totalPrice, totalRoom, phoneNumber) => {
+  const onClickOk = async (price, totalRoom, images, roomName) => {
     try {
       const userId = getData(UUID);
+      if (!userId) {
+        return navigate(PATH_LOGIN);
+      }
       const checkIn = getData(CHECK_IN);
       const checkOut = getData(CHECK_OUT);
       const guest = getData(GUEST);
-      await saveBookings(
+      const data = {
         userId,
         id,
         checkIn,
         checkOut,
         guest,
-        totalPrice,
+        price,
         totalRoom,
-        phoneNumber
-      );
+        coverImage: images.length > 0 ? images[0] : "",
+        roomName,
+      };
+      const carts = getData(CART);
+      if (carts) {
+        const cartsParse = JSON.parse(carts);
+        const newCarts = [...cartsParse, data];
+        saveData(CART,JSON.stringify(newCarts));
+      } else {
+        saveData(CART, JSON.stringify([data]));
+      }
     } catch (error) {
       alert(error);
     }
   };
   return (
-    <Elements stripe={stripePromise} options={options}>
-      {/* <Navbar />
+    <>
+      <Navbar />
       <section className="container-detail">
         <div className="slide-container-room">
           <div className="slider-room">
@@ -189,23 +185,16 @@ function Detailroom() {
             <h4 className="total">Total: {amountRoom * price} THB</h4>
           </div>
           <div style={{ display: "flex" }}>
-            <Input
-              placeholder="เบอร์ติดต่อ"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
             <button
               className="btn-book"
-              // onClick={() => onClickOk(price * amountRoom, amountRoom, phone)}
+              onClick={() => onClickOk(price, amountRoom, images, name)}
             >
-              Booking
+              add to cart
             </button>
-            
           </div>
         </div>
-      </div> */}
-      <CheckoutForm />
-    </Elements>
+      </div>
+    </>
   );
 }
 
