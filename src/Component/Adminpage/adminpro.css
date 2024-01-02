@@ -3,7 +3,7 @@
   margin-top: 100px;
   margin-bottom: 30px;
   margin-left: 150px;
-  background: rgba(255, 186, 59, 0.719);
+  background: rgba(255, 255, 255, 0);
 }
 .promo-main {
   display: flex;
@@ -76,14 +76,23 @@
 
 
 .btn-add-promo {
-  margin-top: 10px;
-  margin-left: 10px;
-  width: 150px;
+  margin-top: 10%;
+  margin-left: 30%;
+  width:  100px;
   height: 50px;
-  background-color: rgb(134, 212, 134);
-  border: 0;
-  border-radius: 5px;
+  background-color: rgba(134, 212, 134, 0);
+  border-radius: 4px;
+  border: 2px solid rgb(8, 121, 8);
+  
 }
+
+.btn-add-promo:hover {
+  
+  background-color: rgb(8, 121, 8);
+  color: white;
+}
+
+
 .btn-modi-promo {
   margin-top: 10px;
   margin-left: 10px;
@@ -95,12 +104,21 @@
 }
 .btn-del-promo {
   margin-left: 10px;
-  width: 150px;
-  height: 30px;
-  background-color: rgb(243, 91, 91);
-  border: 0;
-  border-radius: 5px;
+  width:  100px;
+  height: 50px;
+  background-color: rgba(243, 91, 91, 0);
+  border-radius: 4px;
+  border: 2px solid rgb(240, 28, 28);
 }
+
+.btn-del-promo:hover {
+  
+  background-color: rgb(240, 28, 28);
+  color: white;
+}
+
+
+
 .promo-bottom-layout {
   padding-bottom: 3px;
   padding-left: 20px;
