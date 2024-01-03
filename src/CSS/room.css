@@ -203,15 +203,21 @@
   grid-template-columns: repeat(2, 1fr);
   text-align: center;
 }
-.remove{
-  margin-top: 5px;
-  text-decoration:underline;
-}
+
+.removeroom{
+  background-color: transparent;
+  border: 0;
+
+ }
+
+ .removeroom:hover{
+  color: red;
+ }
 .addroom-bill{
   background: transparent;
   border: 0;
   text-align: left;
-  color:  rgb(228, 176, 6);
+  color:  rgb(253, 198, 17);
   font-size: 15px;
   
 }

@@ -174,8 +174,8 @@ function Detailroom() {
 
               <p> x{amountRoom} </p>
               <div className="remove">
-                <button onClick={onDecrease}>
-                  <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon> Remove
+                <button className="removeroom" onClick={onDecrease}>
+                  <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon> 
                 </button>
               </div>
             </div>
