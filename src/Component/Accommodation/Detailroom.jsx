@@ -4,7 +4,7 @@ import Navbar from "../Navbar";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchRoom } from "../../utils/firestores/roomCollection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faCirclePlus } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faSquarePlus } from "@fortawesome/free-solid-svg-icons";
 import { getData, saveData } from "../../utils/localStorageService";
 import {
   CART,
@@ -119,19 +119,19 @@ function Detailroom() {
         style={{ display: "flex", justifyContent: "space-between", margin: 2 }}
       >
         <div className="infobox">
-          <h3>{name} </h3>
-          <h3>{price} ฿</h3>
-          <h3>Amenities</h3>
+          <h2>{name} </h2>
+          <h4>{price} ฿</h4>
+          <h5>Amenities</h5>
           <p>
             <span className="sizename">Room size </span> : {size} ft
           </p>
-          <h3>Bed</h3>
+          <h5>Bed</h5>
           <p> • Crib (available upon request)</p>
           <p> • Rollaway Bed (available upon request)</p>
           <p> • Connecting Room (available upon request)</p>
-          <h3>Bathroom and toiletries</h3>
+          <h5>Bathroom and toiletries</h5>
           <p> • Toiletries</p>
-          <h3>Features</h3>
+          <h5>Features</h5>
           <p> • Mini Bar </p>
           <p> • Coffee and Tea Making Facilities</p>
           <p> • 42-inch Flat Screen LED TV</p>
@@ -139,9 +139,9 @@ function Detailroom() {
           <p> • Media Hub & USB Charger</p>
           <p> • Bedside Touch Screen Control Panel</p>
           <p> • Safety Box</p>
-          <h3>Internet</h3>
+          <h5>Internet</h5>
           <p> • Complimentary LAN & Wireless Internet</p>
-          <h3>Service</h3>
+          <h5>Service</h5>
           <p> • Twice Daily Turndown service</p>
         </div>
         <div className="all-s">
@@ -149,16 +149,16 @@ function Detailroom() {
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <h2>Your stay</h2>
               <p className="Availableroom">
-                ว่าง {remain} ห้อง
+                {remain} Room left!
               </p>
             </div>
             <div className="checkin-out">
-              <span>Check-in</span>
-              <span>Check-out</span>
+              <h6>Check-in</h6>
+              <h6>Check-out</h6>
             </div>
             <div className="checktime">
-              <span>{checkIn}</span>
-              <span>{checkOut}</span>
+              <h6>{checkIn}</h6>
+              <h6>{checkOut}</h6>
             </div>
             <hr className="line"></hr>
             <div className="roomprice-bill">
@@ -166,7 +166,7 @@ function Detailroom() {
               <span>{price} THB</span>
 
               <span> x{amountRoom} <button className="addroom-bill" onClick={onIncrease}>
-              <FontAwesomeIcon icon={faCirclePlus}></FontAwesomeIcon> 
+              <FontAwesomeIcon icon={faSquarePlus}></FontAwesomeIcon> 
             </button> </span>
               <div className="remove">
                 <button className="removeroom" onClick={onDecrease}>
@@ -175,14 +175,17 @@ function Detailroom() {
               </div>
             </div>
             
-            <h4 className="total">Total: {amountRoom * price} THB</h4>
+           
           </div>
-          <div style={{ display: "flex" }}>
-            <button
+          
+          <div >
+          <h5 className="total">Total: {amountRoom * price} THB</h5>
+            <button 
               className="btn-book"
               onClick={() => onClickOk(price, amountRoom, images, name)}
             >
-              add to cart
+              
+              Add to cart
             </button>
           </div>
         </div>
