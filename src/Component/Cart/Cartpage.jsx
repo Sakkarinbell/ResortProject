@@ -5,6 +5,7 @@ import Cart from "./Cart";
 
 function Cartpage() {
   const carts = getData(CART);
+  console.log('env',import.meta.env.VITE_BACKEND);
   return (
     <>
       <Navbar />
