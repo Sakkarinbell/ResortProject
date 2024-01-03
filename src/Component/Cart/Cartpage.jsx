@@ -11,7 +11,7 @@ function Cartpage() {
       <Navbar />
       {!carts && (
         <div>
-          <h1>ไม่พบรายการห้องพัก</h1>
+          <h1 className="noroom">ไม่พบรายการห้องพัก</h1>
         </div>
       )}
       {carts && <Cart carts={JSON.parse(carts)} />}
