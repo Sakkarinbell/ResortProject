@@ -8,6 +8,7 @@ export const PATH_DETAILROOM = "/room/:id";
 export const PATH_CONTACT = "/contact";
 export const PATH_CART = "/cart";
 export const PATH_SUCCESS = "/success/:billId";
+export const PATH_ACCOUNT = "/account";
 
 // admin
 export const PATH_ADMIN_ROOM = "/admin/room";

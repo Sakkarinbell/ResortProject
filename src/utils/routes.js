@@ -23,6 +23,7 @@ import {
   PATH_CONTACT,
   PATH_CART,
   PATH_SUCCESS,
+  PATH_ACCOUNT,
 } from "./constants/path";
 import Contact from "../Component/Contact/Contactpage";
 import Promo from "../Component/Promotion/Promomain";
@@ -31,6 +32,7 @@ import AdminRoomList from "../Component/Adminpage/AdminRoomList.jsx";
 import AdminBooking from "../Component/Adminpage/AdminBooking";
 import Cartpage from "../Component/Cart/Cartpage.jsx";
 import Successed from "../Component/Payment/Success.jsx";
+import Account from "../Component/Account/Acoount";
 
 const component = {
   home: {
@@ -56,6 +58,10 @@ const component = {
   signup: {
     path: PATH_SIGNUP,
     element: Signup,
+  },
+  account: {
+    path: PATH_ACCOUNT,
+    element: Account,
   },
   acommodation: {
     path: PATH_ACOMMODATIONS,
@@ -125,6 +131,7 @@ export default {
       component.contact,
       component.cart,
       component.success,
+      component.account,
     ],
     redirect: PATH_HOME,
   },
