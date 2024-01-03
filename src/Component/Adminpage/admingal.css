@@ -2,6 +2,8 @@
   width: 100%;
   margin-top: 100px;
   margin-bottom: 30px;
+  margin-left: 150px;
+
 }
 .gal-main {
   display: flex;
@@ -79,27 +81,33 @@
   background-color: rgba(134, 212, 134, 0);
   border-radius: 4px;
   border: 2px solid rgb(8, 121, 8);
+ 
+ 
 }
 
-.btn-add-pic:hover {
+.btn-add-pic:hover{
   background-color: rgb(8, 121, 8);
   color: white;
 }
 
+
+
 .del-pic {
-  margin-left: 80%;
+  margin-left: 85%;
   height: 30px;
   background-color: rgba(235, 0, 0, 0);
   border-radius: 4px;
   border: 2px solid rgb(0, 0, 0);
   color: rgb(0, 0, 0);
   padding: 3px;
+  
 }
 
-.del-pic:hover {
-  margin-left: 80%;
+.del-pic:hover
+{
+  margin-left: 85%;
   height: 30px;
-
+ 
   border: 1;
   color: rgb(255, 0, 0);
   border: 2px solid rgb(255, 0, 0);
@@ -115,3 +123,5 @@
 .gal-bottom-layout {
   padding-bottom: 30px;
 }
+
+

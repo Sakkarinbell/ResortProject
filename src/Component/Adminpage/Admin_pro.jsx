@@ -8,7 +8,15 @@ function Adminpromo() {
         <div className="promo-main">
           <div className="promo-left-layout">
             <div className="promo-num-type-top">
-              <p>Event name :</p>
+              <p>No :</p>
+              <input
+                className="Entry-number"
+                type="number"
+                id="no."
+                name="no."
+                required
+              />
+              <p>PROMO NAME :</p>
               <input
                 className="Entry-type"
                 type="text"
@@ -17,17 +25,12 @@ function Adminpromo() {
                 required
               />
             </div>
-            <div>
-              <p>
-                <input
-                  type="file"
-                  width="300"
-                  height="300"
-                  // onChange={(e) => setImg(e.target.files[0])}
-                />
-              </p>
+            <div className="promo-time">
+              <p>START :</p>
+              <input type="date" id="start" name="start" required />
+              <p>END :</p>
+              <input type="date" id="end" name="end" required />
             </div>
-
             <div className="promo-info">
               <p>INFO :</p>
               <textarea
@@ -97,13 +100,34 @@ function Adminpromo() {
               </p>
             </div>
             <div className="add-modif-btn">
-              <button className="btn-del-promo">DELETE</button>
+              <button className="btn-add-pic">ADD</button>
+              <button className="btn-del-pic">DELETE</button>
             </div>
           </div>
         </div>
         <div className="promo-bottom-layout">
           <div className="btn-under">
             <button className="btn-add-promo">ADD</button>
+            <button className="btn-modi-promo">MODIFY</button>
+          </div>
+          <div className="promo-num-type">
+            <p>No :</p>
+            <input
+              className="Entry-number"
+              type="number"
+              id="no."
+              name="no."
+              required
+            />
+            <p>PROMO NAME :</p>
+            <input
+              className="Entry-type"
+              type="text"
+              id="type"
+              name="type"
+              required
+            />
+            <button className="btn-del-promo">DELETE</button>
           </div>
         </div>
       </section>
