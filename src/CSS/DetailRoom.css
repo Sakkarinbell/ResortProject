@@ -126,4 +126,10 @@
   color: rgb(255, 255, 255);
 }
 
-
+.Availableroom{
+  background-color: red;
+  color: white;
+  padding: 2;
+  border-radius: 6px;
+  
+}

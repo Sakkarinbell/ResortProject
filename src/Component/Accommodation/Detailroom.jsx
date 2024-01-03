@@ -148,14 +148,7 @@ function Detailroom() {
           <div className="bill-info">
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <h2>Your stay</h2>
-              <p
-                style={{
-                  backgroundColor: "red",
-                  color: "white",
-                  padding: 2,
-                  borderRadius: 6,
-                }}
-              >
+              <p className="Availableroom">
                 ว่าง {remain} ห้อง
               </p>
             </div>
