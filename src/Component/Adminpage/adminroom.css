@@ -53,13 +53,17 @@
 
 }
 .Entry-info {
-  width: 410px;
+  width: 300px;
   background: rgb(255, 255, 250);
   color: rgb(0, 0, 0);
   border: 0;
   outline: none;
 ;
  
+}
+
+.costt{
+  margin-top: 10px;
 }
 .add-modif-btn {
   text-align: center;
@@ -154,6 +158,7 @@
   width:  50px;
   border-radius: 5px;
   border: 2px solid rgb(0, 0, 0);
+  
 }
 .detail-btn:hover{
   background-color: rgb(0, 0, 0);

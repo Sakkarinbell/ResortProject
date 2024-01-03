@@ -19,25 +19,25 @@ function AdminRoomList() {
   return (
     <div>
       <Adminbar />
-      <button className="create-btn" onClick={() => navigate(PATH_ADMIN_ROOM)}>create</button>
+      <button className="create-btn" onClick={() => navigate(PATH_ADMIN_ROOM)}>Create</button>
       
       <table>
         <tr>
           <th className="roomname">Room name</th>
-          <th>Total room</th>
-          <th>Price</th>
-          <th>Discount</th>
-          <th>Modify</th>
+          <th className="roomname">Total room</th>
+          <th className="roomname">Price</th>
+          <th className="roomname">Discount</th>
+          <th className="roomname">Modify</th>
         </tr>
         {rooms.map((room) => (
           <tr key={room.id}>
-            <td className="roomname">{room.name}</td>
-            <td>{room.totalRoom}</td>
-            <td>{room.price}</td>
-            <td>{room.priceSale}</td>
-            <th>
+            <td className="roomname100">{room.name}</td>
+            <td className="roomname1">{room.totalRoom}</td>
+            <td className="roomname1">{room.price}</td>
+            <td className="roomname1">{room.priceSale}</td>
+            <th className="roomname">
               <button className="detail-btn" onClick={() => navigate(`/admin/room/${room.id}`)}>
-                detail
+                Detail
               </button>
             </th>
           </tr>

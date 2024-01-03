@@ -8,6 +8,7 @@ function Adminpromo() {
         <div className="promo-main">
           <div className="promo-left-layout">
             <div className="promo-num-type-top">
+           
               <p>Event name :</p>
               <input
                 className="Entry-type"
@@ -18,16 +19,16 @@ function Adminpromo() {
               />
             </div>
             <div>
-              <p>
-                <input
-                  type="file"
-                  width="300"
-                  height="300"
-                  // onChange={(e) => setImg(e.target.files[0])}
-                />
-              </p>
-            </div>
-
+            <p>
+              <input
+                type="file"
+                width="300"
+                height="300"
+                onChange={(e) => setImg(e.target.files[0])}
+              />
+            </p>
+          </div>
+            
             <div className="promo-info">
               <p>INFO :</p>
               <textarea
@@ -97,14 +98,17 @@ function Adminpromo() {
               </p>
             </div>
             <div className="add-modif-btn">
-              <button className="btn-del-promo">DELETE</button>
+              
+              <button className="btn-del-promo">Delete</button>
             </div>
           </div>
         </div>
         <div className="promo-bottom-layout">
           <div className="btn-under">
-            <button className="btn-add-promo">ADD</button>
+            <button className="btn-add-promo">Add</button>
+           
           </div>
+         
         </div>
       </section>
     </>

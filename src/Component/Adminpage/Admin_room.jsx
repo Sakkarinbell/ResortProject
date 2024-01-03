@@ -94,7 +94,7 @@ function Adminroom() {
         <div className="room-main">
           <div className="room-left-layout">
             <div className="room-num-type">
-              <p>ชื่อห้องพัก :</p>
+              <p >ชื่อห้องพัก :</p>
               <input
                 className="Entry-type"
                 type="text"
@@ -103,7 +103,7 @@ function Adminroom() {
                 onChange={(e) => setName(e.target.value)}
                 required
               />
-              <p>จำนวนห้องทั้งหมด :</p>
+              <p >จำนวนห้องทั้งหมด :</p>
               <input
                 className="Entry-number"
                 type="number"
@@ -115,7 +115,7 @@ function Adminroom() {
               />
             </div>
             <div className="room-info">
-              <p>ราคา :</p>
+              <p className="costt">ราคา :</p>
               <input
                 className="Entry-info"
                 type="number"
@@ -124,7 +124,7 @@ function Adminroom() {
                 onChange={(e) => setPrice(Number(e.target.value))}
                 required
               />
-              <p>ราคาส่วนลด :</p>
+              <p className="costt">ราคาส่วนลด :</p>
               <input
                 className="Entry-info"
                 type="text"
@@ -134,7 +134,7 @@ function Adminroom() {
                 onChange={(e) => setPriceSale(Number(e.target.value))}
                 required
               />
-              <p>ขนาดห้องพัก :</p>
+              <p className="costt">ขนาดห้องพัก :</p>
               <input
                 className="Entry-info"
                 type="text"
@@ -161,7 +161,7 @@ function Adminroom() {
               {images.map((url) => (
                 <>
                   <img src={url} key={url} alt="images" width={200} />
-                  <button className="del-pic" onClick={() => onDeleteImage(url)}>delete</button>
+                  <button className="del-pic" onClick={() => onDeleteImage(url)}>Delete</button>
                 </>
               ))}
             </div>
@@ -178,7 +178,7 @@ function Adminroom() {
           </div>
         ) : (
           <button className="btn-add-room" onClick={() => onCreateRoom()}>
-            ADD
+            Add
           </button>
         )}
       </div>

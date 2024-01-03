@@ -43,23 +43,33 @@
 }
 table {
   font-family: arial, sans-serif;
-  border-collapse: collapse;
+  border-collapse: collapse ;
   width: 94%;
   margin-left: 4%;
 }
 
-td {
+.roomname1 {
   border: 1px solid #000000;
   text-align: right;
   padding: 8px;
 }
+.roomname100 {
+  border: 1px solid #000000;
+  text-align: left;
+  padding: 8px;
+}
 
-th{
+.roomname{
   border: 1px solid #000000;
   text-align: center;
   padding: 8px;
 }
+
 tr:nth-child(even) {
   background-color: #dddddd;
 }
 
+.guest{
+  text-align: center;
+  
+}

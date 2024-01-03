@@ -84,7 +84,7 @@ function Admingallary() {
               className="btn-add-pic"
               onClick={() => onCreateGallery(img)}
             >
-              ADD
+              Add
             </button>
           </div>
         </div>
@@ -99,7 +99,7 @@ function Admingallary() {
               <div className="container">
                 <p>{image.name}</p>
               </div>
-              <button className="del-pic" onClick={() => onDeleteAllery(image)}>delete</button>
+              <button className="del-pic" onClick={() => onDeleteAllery(image)}>Delete</button>
             </div>
           ))}
         </div>
