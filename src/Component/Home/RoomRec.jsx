@@ -25,7 +25,7 @@ function RoomRec() {
   }, []);
   return (
     <section className="section__container reccomend__container">
-      <h2 className="section__header-1">Reccomend Room</h2>
+      <h2 className="section__header-1">Recommend Room</h2>
       <div className="reccomend__grid">
         {rooms
           .filter((_, index) => index < 3)

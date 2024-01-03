@@ -12,6 +12,7 @@ import {
   PATH_HOME,
   PATH_LOGIN,
   PATH_NEWS,
+  PATH_ACCOUNT,
 } from "../utils/constants/path";
 import { getData, removeData } from "../utils/localStorageService";
 import { CART, ROLE, UUID } from "../utils/constants/storage";
@@ -49,7 +50,10 @@ function Navbar() {
               </Link>
             </Badge>
             <button className="btncart">
-              <FontAwesomeIcon icon={faUser} />
+              <FontAwesomeIcon
+                icon={faUser}
+                onClick={() => navigate(PATH_ACCOUNT)}
+              />
             </button>
             <button className="btnLogin-popup" onClick={() => onLogout()}>
               LOGOUT
