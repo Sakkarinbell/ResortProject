@@ -169,12 +169,12 @@ function Detailroom() {
             </div>
             <hr className="line"></hr>
             <div className="roomprice-bill">
-              <h4>{name}</h4>
-              <h4>{price} THB</h4>
+              <span>{name}</span>
+              <span>{price} THB</span>
 
-              <h5> x{amountRoom} <button className="addroom-bill" onClick={onIncrease}>
+              <span> x{amountRoom} <button className="addroom-bill" onClick={onIncrease}>
               <FontAwesomeIcon icon={faCirclePlus}></FontAwesomeIcon> 
-            </button> </h5>
+            </button> </span>
               <div className="remove">
                 <button className="removeroom" onClick={onDecrease}>
                   <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon> 
