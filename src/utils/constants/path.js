@@ -12,8 +12,10 @@ export const PATH_ACCOUNT = "/account";
 
 // admin
 export const PATH_ADMIN_ROOM = "/admin/room";
-export const PATH_ADMIN_NEWS = "/admin/news";
 export const PATH_ADMIN_GALLERY = "/admin/gallery";
 export const PATH_EDIT_ROOM = "/admin/room/:id";
 export const PATH_ADMIN_ROOM_LIST = "/admin/room/list";
 export const PATH_ADMIN_BOOKING_LIST = "/admin/booking";
+export const PATH_EVENT = "/admin/event";
+export const PATH_EDIT_EVENT = "/admin/event/:id";
+export const PATH_EVENT_LIST = "/admin/events";

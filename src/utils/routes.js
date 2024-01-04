@@ -9,7 +9,6 @@ import Signup from "../Component/Login/Signup";
 import {
   PATH_ACOMMODATIONS,
   PATH_ADMIN_GALLERY,
-  PATH_ADMIN_NEWS,
   PATH_ADMIN_ROOM,
   PATH_ADMIN_ROOM_LIST,
   PATH_ADMIN_BOOKING_LIST,
@@ -24,6 +23,9 @@ import {
   PATH_CART,
   PATH_SUCCESS,
   PATH_ACCOUNT,
+  PATH_EVENT,
+  PATH_EDIT_EVENT,
+  PATH_EVENT_LIST,
 } from "./constants/path";
 import Contact from "../Component/Contact/Contactpage";
 import Promo from "../Component/Promotion/Promomain";
@@ -33,6 +35,7 @@ import AdminBooking from "../Component/Adminpage/AdminBooking";
 import Cartpage from "../Component/Cart/Cartpage.jsx";
 import Successed from "../Component/Payment/Success.jsx";
 import Account from "../Component/Account/Acoount";
+import AdminEvents from "../Component/Adminpage/AdminEvents.jsx";
 
 const component = {
   home: {
@@ -87,13 +90,21 @@ const component = {
     path: PATH_EDIT_ROOM,
     element: Adminroom,
   },
-  adminNews: {
-    path: PATH_ADMIN_NEWS,
+  adminEvent: {
+    path: PATH_EVENT,
+    element: Adminpromo,
+  },
+  editEvent: {
+    path: PATH_EDIT_EVENT,
     element: Adminpromo,
   },
   adminGallery: {
     path: PATH_ADMIN_GALLERY,
     element: Admingallary,
+  },
+  events: {
+    path: PATH_EVENT_LIST,
+    element: AdminEvents,
   },
   cart: {
     path: PATH_CART,
@@ -140,10 +151,12 @@ export default {
       component.room,
       component.home,
       component.adminbooking,
-      component.adminNews,
+      component.adminEvent,
       component.adminGallery,
       component.createRoom,
       component.editRoom,
+      component.events,
+      component.editEvent,
     ],
     redirect: PATH_ADMIN_ROOM_LIST,
   },

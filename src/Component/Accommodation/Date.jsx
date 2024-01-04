@@ -5,11 +5,11 @@ import { getData } from "../../utils/localStorageService";
 import { CHECK_IN, CHECK_OUT, GUEST } from "../../utils/constants/storage";
 import PropTypes from "prop-types";
 
-function Date({ onSearch }) {
+function SearchRoom({ onSearch }) {
+  const currentDate = new Date().toISOString().split('T')[0];
   const [checkIn, setCheckIn] = useState(getData(CHECK_IN));
   const [checkOut, setCheckOut] = useState(getData(CHECK_OUT));
   const [guest, setGuest] = useState(getData(GUEST) || 0);
-
   return (
     <div className="section__container header__container">
       <div className="header__image__container">
@@ -25,6 +25,7 @@ function Date({ onSearch }) {
                   type="date"
                   value={checkIn}
                   onChange={(e) => setCheckIn(e.target.value)}
+                  min={currentDate}
                 />
                 <label>Check In</label>
               </div>
@@ -36,6 +37,7 @@ function Date({ onSearch }) {
                   type="date"
                   value={checkOut}
                   onChange={(e) => setCheckOut(e.target.value)}
+                  min={checkIn || currentDate}
                 />
                 <label>Check Out</label>
               </div>
@@ -67,8 +69,8 @@ function Date({ onSearch }) {
   );
 }
 
-Date.propTypes = {
+SearchRoom.propTypes = {
   onSearch: PropTypes.func,
 };
 
-export default Date;
+export default SearchRoom;

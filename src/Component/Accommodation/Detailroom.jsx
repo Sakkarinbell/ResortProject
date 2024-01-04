@@ -15,6 +15,7 @@ import {
 } from "../../utils/constants/storage";
 import { roomBooking } from "../../utils/firestores/bookingCollection";
 import { PATH_LOGIN } from "../../utils/constants/path";
+import calculateDay from "../../utils/helper/calculateDay";
 
 function Detailroom() {
   const { id } = useParams();
@@ -27,8 +28,8 @@ function Detailroom() {
   const checkIn = getData(CHECK_IN);
   const checkOut = getData(CHECK_OUT);
   const [amountRoom, setAmountRoom] = useState(0);
-  // const [phone, setPhone] = useState("");
   const [remain, setRemain] = useState(0);
+  const amountDay = calculateDay(checkIn, checkOut);
 
   useEffect(() => {
     if (id) {
@@ -62,7 +63,7 @@ function Detailroom() {
     if (amountRoom <= 1) return;
     setAmountRoom((pre) => pre - 1);
   };
-  const onClickOk = async (price, totalRoom, images, roomName) => {
+  const onClickOk = async (price, totalRoom, images, roomName, amountDay) => {
     try {
       const userId = getData(UUID);
       if (!userId) {
@@ -81,12 +82,13 @@ function Detailroom() {
         totalRoom,
         coverImage: images.length > 0 ? images[0] : "",
         roomName,
+        amountDay,
       };
       const carts = getData(CART);
       if (carts) {
         const cartsParse = JSON.parse(carts);
         const newCarts = [...cartsParse, data];
-        saveData(CART,JSON.stringify(newCarts));
+        saveData(CART, JSON.stringify(newCarts));
       } else {
         saveData(CART, JSON.stringify([data]));
       }
@@ -148,9 +150,7 @@ function Detailroom() {
           <div className="bill-info">
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <h2>Your stay</h2>
-              <p className="Availableroom">
-                {remain} Room left!
-              </p>
+              <p className="Availableroom">{remain} Room left!</p>
             </div>
             <div className="checkin-out">
               <h6>Check-in</h6>
@@ -165,26 +165,31 @@ function Detailroom() {
               <span>{name}</span>
               <span>{price} THB</span>
 
-              <span> x{amountRoom} <button className="addroom-bill" onClick={onIncrease}>
-              <FontAwesomeIcon icon={faSquarePlus}></FontAwesomeIcon> 
-            </button> </span>
+              <span>
+                {" "}
+                x{amountRoom}
+                <button className="addroom-bill" onClick={onIncrease}>
+                  <FontAwesomeIcon icon={faSquarePlus}></FontAwesomeIcon>
+                </button>
+              </span>
               <div className="remove">
                 <button className="removeroom" onClick={onDecrease}>
-                  <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon> 
+                  <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
                 </button>
               </div>
             </div>
-            
-           
           </div>
-          
-          <div >
-          <h5 className="total">Total: {amountRoom * price} THB</h5>
-            <button 
+
+          <div>
+            <h5 className="total">
+              Total: {amountRoom * price * amountDay} THB
+            </h5>
+            <button
               className="btn-book"
-              onClick={() => onClickOk(price, amountRoom, images, name)}
+              onClick={() =>
+                onClickOk(price, amountRoom, images, name, amountDay)
+              }
             >
-              
               Add to cart
             </button>
           </div>

@@ -7,7 +7,7 @@ import { v4 } from "uuid";
 function Cart({ carts }) {
   const totalPrice = useMemo(() => {
     const total = carts?.reduce(
-      (prev, cur) => prev + cur.price * cur.totalRoom,
+      (prev, cur) => prev + cur.price * cur.totalRoom * cur.amountDay,
       0
     );
     return total;
@@ -63,7 +63,7 @@ function Cart({ carts }) {
                     <div className="cart-table-prd-name">
                       <h5>
                         <a>
-                          {cart?.checkIn} // {cart?.checkOut}
+                          {cart?.checkIn} {cart?.checkOut}
                         </a>
                       </h5>
                       <h2>
@@ -85,8 +85,8 @@ function Cart({ carts }) {
                 ))}
                 <div className="totalform">
                   <div className="totalcart">
-                   <h4 className="text-total">Total price : </h4>
-                   <h4 className="text-total2">{totalPrice}</h4>
+                    <h4 className="text-total">Total price : </h4>
+                    <h4 className="text-total2">{totalPrice}</h4>
                   </div>
                   <button className="btn-cart" onClick={onCheckout}>
                     Check Out
