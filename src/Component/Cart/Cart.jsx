@@ -46,7 +46,7 @@ function Cart({ carts }) {
       <div className="holder mt-0">
         <div className="container">
           <h1 className="text-center">Your Cart</h1>
-          <div className="row">
+          <div className="rowcart">
             <div className="col-md-8">
               <div className="cart-table">
                 {carts?.map((cart) => (
@@ -63,7 +63,7 @@ function Cart({ carts }) {
                     <div className="cart-table-prd-name">
                       <h5>
                         <a>
-                          {cart?.checkIn} -- {cart?.checkOut}
+                          {cart?.checkIn} // {cart?.checkOut}
                         </a>
                       </h5>
                       <h2>
@@ -84,7 +84,10 @@ function Cart({ carts }) {
                   </div>
                 ))}
                 <div className="totalform">
-                  <h4 className="text-total">Total price {totalPrice}</h4>
+                  <div className="totalcart">
+                   <h4 className="text-total">Total price : </h4>
+                   <h4 className="text-total2">{totalPrice}</h4>
+                  </div>
                   <button className="btn-cart" onClick={onCheckout}>
                     Check Out
                   </button>
