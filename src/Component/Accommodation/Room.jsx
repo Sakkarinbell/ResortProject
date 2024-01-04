@@ -24,7 +24,7 @@ function RoomRec({ rooms }) {
                 <div className="roomproduct-div-left">
                   <div
                     className="img-container"
-                    onClick={() => navigate("/Detailroom")}
+                    onClick={() => navigate(`/room/${room.id}`)}
                   >
                     <img
                       src={room?.images?.length > 0 ? room?.images[0] : ""}

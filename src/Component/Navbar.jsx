@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import { faUser, faCartShopping } from "@fortawesome/free-solid-svg-icons";
+
 import { Badge } from "antd";
 import {
   PATH_ACOMMODATIONS,
@@ -46,7 +46,7 @@ function Navbar() {
           <>
             <Badge count={carts ? JSON.parse(carts).length : 0}>
               <Link to={PATH_CART}>
-                <ShoppingCartOutlined />
+                <FontAwesomeIcon icon={faCartShopping} />
               </Link>
             </Badge>
             <button className="btncart">

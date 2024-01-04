@@ -25,6 +25,9 @@ function AdminEvents() {
   return (
     <>
       <Adminbar />
+      <button className="create-btn" onClick={() => navigate(PATH_EVENT)}>
+        Create
+      </button>
       <div>
         <table>
           <tr>
