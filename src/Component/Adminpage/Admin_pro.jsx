@@ -155,7 +155,7 @@ function Adminpromo() {
             )}
 
             {id && (
-              <button onClick={() => onDeleteEvent(id)}>delete event</button>
+              <button className="btn-deleve" onClick={() => onDeleteEvent(id)}>Delete event</button>
             )}
           </div>
         </div>

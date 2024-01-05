@@ -38,7 +38,7 @@ function Navbar() {
       <nav className="navigation">
         <Link to={PATH_HOME}>HOME</Link>
         <Link to={PATH_ACOMMODATIONS}>ACOMMODATIONS</Link>
-        <Link to={PATH_NEWS}>NEWS</Link>
+        <Link to={PATH_NEWS}>EVENTS</Link>
         <Link to={PATH_GALLERY}>GALLERY</Link>
 
         <Link to={PATH_CONTACT}>CONTACT</Link>

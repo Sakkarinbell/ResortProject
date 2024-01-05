@@ -46,8 +46,8 @@ function AdminEvents() {
               <td>{event.eventName}</td>
               <td>{event.description}</td>
               <td>
-                <button onClick={() => navigate(`${PATH_EVENT}/${event.id}`)}>
-                  detail
+                <button className="detail-btn" onClick={() => navigate(`${PATH_EVENT}/${event.id}`)}>
+                  Detail
                 </button>
               </td>
             </tr>
