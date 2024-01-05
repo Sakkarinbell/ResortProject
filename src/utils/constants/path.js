@@ -9,6 +9,7 @@ export const PATH_CONTACT = "/contact";
 export const PATH_CART = "/cart";
 export const PATH_SUCCESS = "/success/:billId";
 export const PATH_ACCOUNT = "/account";
+export const PATH_USER_EVENT = "/events"
 
 // admin
 export const PATH_ADMIN_ROOM = "/admin/room";

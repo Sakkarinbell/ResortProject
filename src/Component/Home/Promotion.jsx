@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { PATH_USER_EVENT } from "../../utils/constants/path";
 
 function Promotions() {
   const navigate = useNavigate();
@@ -11,7 +12,10 @@ function Promotions() {
         <h5>News</h5>
         <h2>Dophin Show</h2>
         <p>Get ticket Dophin Show Free</p>
-        <a href="#" className="btn-pro" onClick={() => navigate("/Promo")}>
+        <a
+          className="btn-pro"
+          onClick={() => navigate(PATH_USER_EVENT)}
+        >
           See More
         </a>
       </div>

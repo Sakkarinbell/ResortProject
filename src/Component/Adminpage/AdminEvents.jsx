@@ -9,10 +9,10 @@ function AdminEvents() {
   const navigate = useNavigate();
   const [events, setEvents] = useState([]);
   useEffect(() => {
-    onFetchBookings();
+    onFetchEvent();
   }, []);
 
-  const onFetchBookings = async () => {
+  const onFetchEvent = async () => {
     try {
       const { data } = await fetchEvents();
       if (data) {

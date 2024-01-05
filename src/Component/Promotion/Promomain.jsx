@@ -2,7 +2,7 @@ import Footer from "../Footer";
 import Navbar from "../Navbar";
 import Promotioninfo from "./Promoinfo";
 
-function Promo() {
+function EventMain() {
   return (
     <div>
       <Navbar />
@@ -12,4 +12,4 @@ function Promo() {
   );
 }
 
-export default Promo;
+export default EventMain;

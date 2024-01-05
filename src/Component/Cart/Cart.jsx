@@ -4,14 +4,15 @@ import axios from "axios";
 import { saveBookings } from "../../utils/firestores/bookingCollection";
 import { PENDING } from "../../utils/constants/status";
 import { v4 } from "uuid";
-function Cart({ carts }) {
+function Cart({ carts, onRemove }) {
   const totalPrice = useMemo(() => {
     const total = carts?.reduce(
       (prev, cur) => prev + cur.price * cur.totalRoom * cur.amountDay,
       0
     );
     return total;
-  }, []);
+  }, [carts]);
+
   const onCheckout = async () => {
     try {
       const billId = v4();
@@ -71,13 +72,14 @@ function Cart({ carts }) {
                       </h2>
                     </div>
                     <div className="cart-table-prd-qty">
-                      <span>qty:</span> <b>{cart?.totalRoom }</b>
+                      <span>qty:</span> <b>{cart?.totalRoom}</b>
                     </div>
                     <div className="cart-table-prd-price">
-                      <span>price:</span> <b>฿ {cart?.price * cart?.totalRoom  * cart?.amountDay}</b>
+                      <span>price:</span>{" "}
+                      <b>฿ {cart?.price * cart?.totalRoom * cart?.amountDay}</b>
                     </div>
                     <div className="cart-table-prd-action">
-                      {" "}
+                      <button onClick={() => onRemove(cart.id)}>x</button>
                       <a className="fa fa-trash" aria-hidden="true"></a>{" "}
                       <a className="fa fa-pencil" aria-hidden="true"></a>
                     </div>
@@ -102,5 +104,6 @@ function Cart({ carts }) {
 }
 Cart.propTypes = {
   carts: PropType.array,
+  onRemove: PropType.func,
 };
 export default Cart;
