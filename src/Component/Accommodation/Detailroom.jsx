@@ -150,7 +150,7 @@ function Detailroom() {
           <div className="bill-info">
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <h2>Your stay</h2>
-              <p className="Availableroom">{remain} Room left!</p>
+              <p className="Availableroom">{remain - amountRoom } Room left!</p>
             </div>
             <div className="checkin-out">
               <h6>Check-in</h6>
