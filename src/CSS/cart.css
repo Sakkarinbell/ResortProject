@@ -17,9 +17,11 @@
   border-top-color: #f7f7f7;
   padding-top: 15px;
   padding-bottom: 15px;
+ 
 
 }
 .img-fluid {
+  height: 300px !important;
   width: 300px;
   margin-left: -40px;
 }
@@ -139,3 +141,4 @@
   grid-template-columns: repeat(2, 1fr);
   text-align: center;
 }
+
