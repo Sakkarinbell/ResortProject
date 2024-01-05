@@ -71,10 +71,10 @@ function Cart({ carts }) {
                       </h2>
                     </div>
                     <div className="cart-table-prd-qty">
-                      <span>qty:</span> <b>{cart?.totalRoom}</b>
+                      <span>qty:</span> <b>{cart?.totalRoom }</b>
                     </div>
                     <div className="cart-table-prd-price">
-                      <span>price:</span> <b>฿ {cart?.price * cart?.totalRoom}</b>
+                      <span>price:</span> <b>฿ {cart?.price * cart?.totalRoom  * cart?.amountDay}</b>
                     </div>
                     <div className="cart-table-prd-action">
                       {" "}
