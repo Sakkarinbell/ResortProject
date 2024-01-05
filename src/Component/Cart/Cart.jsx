@@ -79,7 +79,7 @@ function Cart({ carts, onRemove }) {
                       <b>฿ {cart?.price * cart?.totalRoom * cart?.amountDay}</b>
                     </div>
                     <div className="cart-table-prd-action">
-                      <button onClick={() => onRemove(cart.id)}>x</button>
+                      <button className="removecart" onClick={() => onRemove(cart.id)}> x </button>
                       <a className="fa fa-trash" aria-hidden="true"></a>{" "}
                       <a className="fa fa-pencil" aria-hidden="true"></a>
                     </div>

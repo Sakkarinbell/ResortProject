@@ -142,3 +142,16 @@
   text-align: center;
 }
 
+.removecart{
+  border: 1;
+  font-size: 20px;
+  color: red;
+  padding: 2px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+.removecart:hover{
+  background-color: red;
+  color: white;
+}

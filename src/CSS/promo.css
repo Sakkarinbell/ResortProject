@@ -5,6 +5,7 @@
 .product-div-left .img-container img {
   width: 500px;
   margin: 0 auto;
+  height: fit-content
 }
 
 .main-wrapper .container {
@@ -19,14 +20,16 @@
   grid-template-columns: repeat(2, 1fr);
   background-color: #f1f1f1;
   border-radius: 10px;
-  height: 300px;
+  
   overflow: hidden;
   width: 1200px;
 }
 
+
 .main-wrapper .product-div-right {
   padding: 20px;
 }
+
 .img-container img {
   width: 300px;
   margin-left: 6rem;
