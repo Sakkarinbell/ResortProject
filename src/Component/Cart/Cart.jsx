@@ -74,7 +74,7 @@ function Cart({ carts }) {
                       <span>qty:</span> <b>{cart?.totalRoom}</b>
                     </div>
                     <div className="cart-table-prd-price">
-                      <span>price:</span> <b>฿ {cart?.price}</b>
+                      <span>price:</span> <b>฿ {cart?.price * cart?.totalRoom}</b>
                     </div>
                     <div className="cart-table-prd-action">
                       {" "}
