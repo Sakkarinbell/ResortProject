@@ -163,7 +163,7 @@ function Detailroom() {
             <hr className="line"></hr>
             <div className="roomprice-bill">
               <span>{name}</span>
-              <span>{price} THB</span>
+              <span>{price * amountDay} THB</span>
 
               <span>
                 {" "}
