@@ -55,11 +55,12 @@
 }
 .cart-table-prd-name h5,
 .cart-table-prd-name h5 a {
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.2em;
   color: #424242;
   text-transform: uppercase;
   margin-bottom: 10px;
+  font-weight: 600
 }
 .cart-table-prd-name h2,
 .cart-table-prd-name h2 a {

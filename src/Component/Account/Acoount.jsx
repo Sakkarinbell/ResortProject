@@ -33,44 +33,19 @@ function Account() {
                     className="tab-pane fade active show"
                     id="account-general"
                   >
-                    <div className="card-body media align-items-center">
-                      <img
-                        src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                        alt
-                        className="d-block ui-w-80"
-                      />
-                      <div className="media-body ml-4">
-                        <label className="btn btn-outline-primary">
-                          Upload new photo
-                          <input
-                            type="file"
-                            className="account-settings-fileinput"
-                          />
-                        </label>{" "}
-                        &nbsp;
-                        <button
-                          type="button"
-                          className="btn btn-default md-btn-flat"
-                        >
-                          Reset
-                        </button>
-                        <div className="text-light small mt-1">
-                          Allowed JPG, GIF or PNG. Max size of 800K
-                        </div>
-                      </div>
-                    </div>
+                   
                     <hr className="border-light m-0" />
                     <div className="card-body">
                       <div className="form-group">
-                        <label className="form-label">Username</label>
+                        <label className="form-label">Email</label>
                         <input type="text" className="form-control mb-1" />
                       </div>
                       <div className="form-group">
-                        <label className="form-label">Name</label>
+                        <label className="form-label">First Name</label>
                         <input type="text" className="form-control" />
                       </div>
                       <div className="form-group">
-                        <label className="form-label">E-mail</label>
+                        <label className="form-label">Last Name</label>
                         <input type="text" className="form-control mb-1" />
                         <div className="alert alert-warning mt-3">
                           Your email is not confirmed. Please check your inbox.
@@ -81,14 +56,7 @@ function Account() {
                         <label className="form-label">Phone number</label>
                         <input type="text" className="form-control" />
                       </div>
-                      <div className="form-group">
-                        <label className="form-label">Date of birth</label>
-                        <input type="text" className="form-control" />
-                      </div>
-                      <div className="form-group">
-                        <label className="form-label">Address</label>
-                        <input type="text" className="form-control" />
-                      </div>
+                      
                     </div>
                   </div>
                   <div className="tab-pane fade" id="account-change-password">

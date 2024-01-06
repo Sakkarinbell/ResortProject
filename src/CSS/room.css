@@ -209,13 +209,20 @@
 }
 
 .removeroom{
-  background-color: transparent;
-  border: 0;
-
+  background: transparent;
+ border: 0;
+ text-align: left;
+ color:  rgb(255, 177, 8);
+ font-size: 18px;
+ margin-right: 10px;
  }
 
+
+
+
+
  .removeroom:hover{
-  color: red;
+  color: rgb(209, 143, 2);
  }
 .addroom-bill{
   background: transparent;
@@ -223,6 +230,7 @@
   text-align: left;
   color:  rgb(255, 177, 8);
   font-size: 18px;
+  margin-left: 10px;
   
 }
 

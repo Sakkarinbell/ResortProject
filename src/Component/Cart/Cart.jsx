@@ -64,7 +64,14 @@ function Cart({ carts, onRemove }) {
                     <div className="cart-table-prd-name">
                       <h5>
                         <a>
-                          {cart?.checkIn} {cart?.checkOut}
+                          Check In - {cart?.checkIn} 
+                         
+                        </a>
+                      </h5>
+                      <h5>
+                        <a>
+                          
+                        Check Out -  {cart?.checkOut}
                         </a>
                       </h5>
                       <h2>

@@ -11,7 +11,12 @@ function Home() {
       <Navbar />
       <Welcome />
       <Promotions />
-      <RoomRec />
+      <div>
+       <h2 className="section__header-1">Recommend Room</h2>
+       <RoomRec />
+      </div>
+      
+      
       <Gallery />
       <Footer />
     </div>

@@ -88,9 +88,7 @@ function Signup() {
             <label>Last Name</label>
           </div>
           <div className="remember-forgot">
-            <label>
-              <input type="checkbox" /> I agree to the terms & conditions
-            </label>
+           
           </div>
           <button type="submit" className="btn-login" onClick={submit}>
             Register

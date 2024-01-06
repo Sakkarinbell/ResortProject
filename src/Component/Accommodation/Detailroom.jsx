@@ -4,7 +4,7 @@ import Navbar from "../Navbar";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchRoom } from "../../utils/firestores/roomCollection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faSquarePlus } from "@fortawesome/free-solid-svg-icons";
+import { faSquareMinus, faSquarePlus } from "@fortawesome/free-solid-svg-icons";
 import { getData, saveData } from "../../utils/localStorageService";
 import {
   CART,
@@ -167,15 +167,16 @@ function Detailroom() {
 
               <span>
                 {" "}
-                x{amountRoom}
+                <button className="removeroom" onClick={onDecrease}>
+                  <FontAwesomeIcon icon={faSquareMinus}></FontAwesomeIcon>
+                </button>
+                {amountRoom}
                 <button className="addroom-bill" onClick={onIncrease}>
                   <FontAwesomeIcon icon={faSquarePlus}></FontAwesomeIcon>
                 </button>
               </span>
               <div className="remove">
-                <button className="removeroom" onClick={onDecrease}>
-                  <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
-                </button>
+                
               </div>
             </div>
           </div>

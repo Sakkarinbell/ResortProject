@@ -4,6 +4,8 @@ import { useState } from "react";
 import { getData } from "../../utils/localStorageService";
 import { CHECK_IN, CHECK_OUT, GUEST } from "../../utils/constants/storage";
 import PropTypes from "prop-types";
+import RoomRec from "../Home/RoomRec";
+
 
 function SearchRoom({ onSearch }) {
   const currentDate = new Date().toISOString().split('T')[0];
@@ -25,7 +27,7 @@ function SearchRoom({ onSearch }) {
                   type="date"
                   value={checkIn}
                   onChange={(e) => setCheckIn(e.target.value)}
-                  min={currentDate}
+                  min={(currentDate)}
                 />
                 <label>Check In</label>
               </div>
@@ -61,11 +63,16 @@ function SearchRoom({ onSearch }) {
                 icon={faMagnifyingGlass}
                 onClick={() => onSearch(checkIn, checkOut, guest)}
               />
+              
             </div>
           </button>
+         
         </div>
+        
       </div>
+      <div className="showroom"><RoomRec /></div>
     </div>
+    
   );
 }
 

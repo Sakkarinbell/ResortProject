@@ -239,6 +239,7 @@ section {
 .section__header-1 {
   position: absolute;
   left: 44%;
+  margin-top: 50px;
 }
 
 .section__container {
@@ -670,6 +671,7 @@ component.contact,
 }
 
 .login-register {
+  margin-top: 10px !important;
   font-size: 1em;
   color: #182634;
   text-align: center;
@@ -861,4 +863,8 @@ component.contact,
 .newshead{
   margin-left: 75%;
   margin-top: 70px;
+}
+
+.showroom{
+  margin-top: 5%;
 }

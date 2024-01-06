@@ -52,14 +52,7 @@ function Admingallary() {
       <Adminbar />
       <section className="gal-page">
         <div className="gal-main">
-          <div>
-            {/* <p>PICTURE TYPE :</p> */}
-            <select onChange={(e) => setType(e.target.value)}>
-              <option value="ROOM">ROOM</option>
-              <option value="FACILITIES">FACILITIES</option>
-              <option value="EVENTS">EVENTS</option>
-            </select>
-          </div>
+          
           <div>
             <input
               type="text"

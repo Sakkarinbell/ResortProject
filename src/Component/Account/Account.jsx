@@ -63,7 +63,7 @@ function Account() {
                     <hr className="border-light m-0" />
                     <div className="card-body">
                       <div className="form-group">
-                        <label className="form-label">Username</label>
+                        <label className="form-label">Email</label>
                         <input type="text" className="form-control mb-1" />
                       </div>
                       <div className="form-group">
