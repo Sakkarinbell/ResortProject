@@ -49,18 +49,18 @@ function Contact() {
           </div>
         </div>
         <div className="contactForm">
-          <form>
+          <form action="https://formsubmit.co/timekplus@gmail.com" method="POST">
             <h2>Send Message</h2>
             <div className="inputbox">
-              <input type="text" name="" required="required" />
+              <input type="text" name="name" required placeholder="" />
               <span>Full Name</span>
             </div>
             <div className="inputbox">
-              <input type="text" name="" required="required" />
+              <input type="email" name="email" required placeholder="" />
               <span>Email</span>
             </div>
             <div className="inputbox">
-              <textarea required="required"></textarea>
+              <textarea name="msg" required placeholder=""></textarea>
               <span>Type your Message...</span>
             </div>
             <div className="inputbox">
