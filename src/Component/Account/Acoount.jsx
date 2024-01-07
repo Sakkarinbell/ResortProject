@@ -47,10 +47,7 @@ function Account() {
                       <div className="form-group">
                         <label className="form-label">Last Name</label>
                         <input type="text" className="form-control mb-1" />
-                        <div className="alert alert-warning mt-3">
-                          Your email is not confirmed. Please check your inbox.
-                          <a href="javascript:void(0)">Resend confirmation</a>
-                        </div>
+                      
                       </div>
                       <div className="form-group">
                         <label className="form-label">Phone number</label>
