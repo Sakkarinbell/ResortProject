@@ -36,7 +36,7 @@ function RoomRec() {
               onClick={() => navigate(`/room/${room.id}`)}
             >
               <img
-                src={room?.images?.length > 0 ? room.images[0] : ""}
+                src={room?.images?.length > 0 ? room.images[0] : "/icon.png"}
                 alt="reccomend room"
               />
               <div className="reccomend__content">

@@ -85,7 +85,7 @@ function Admingallary() {
           {imgsUrl.map((image) => (
             <div className="polaroid" key={image.id}>
               <img
-                src={image.url}
+                src={image.url || "/icon.png"}
                 alt={image.name}
                 style={{ width: "100%", height: "200px" }}
               />

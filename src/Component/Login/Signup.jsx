@@ -22,7 +22,7 @@ function Signup() {
     try {
       const user = await auth.createUserWithEmailAndPassword(email, pass);
       if (user.user.uid) {
-        const sUser = await saveUser(user.user.uid, firstName, lastName);
+        const sUser = await saveUser(user.user.uid, firstName, lastName, email);
         console.log("sUser", sUser);
         alert("Account Created succesfully");
       }

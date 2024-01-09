@@ -26,7 +26,7 @@ function Promotioninfo() {
               <div className="product-div-left">
                 <div className="img-container">
                   <img
-                    src={event.imageURL}
+                  src={event.imageURL || "/icon.png"}
                     alt="watch"
                     width="150px"
                     height="400px"

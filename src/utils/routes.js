@@ -27,6 +27,7 @@ import {
   PATH_EDIT_EVENT,
   PATH_EVENT_LIST,
   PATH_USER_EVENT,
+  PATH_USER_ORDERS,
 } from "./constants/path";
 import Contact from "../Component/Contact/Contactpage";
 import Promo from "../Component/Promotion/Promomain";
@@ -38,6 +39,7 @@ import Successed from "../Component/Payment/Success.jsx";
 import Account from "../Component/Account/Acoount";
 import AdminEvents from "../Component/Adminpage/AdminEvents.jsx";
 import EventMain from "../Component/Promotion/Promomain";
+import Orders from "../Component/Order/Orders.jsx";
 
 const component = {
   home: {
@@ -120,6 +122,10 @@ const component = {
     path: PATH_SUCCESS,
     element: Successed,
   },
+  orders: {
+    path: PATH_USER_ORDERS,
+    element: Orders,
+  },
 };
 
 export default {
@@ -151,6 +157,7 @@ export default {
       component.success,
       component.account,
       component.useEvents,
+      component.orders,
     ],
     redirect: PATH_HOME,
   },

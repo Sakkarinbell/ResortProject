@@ -11,6 +11,19 @@ export const fetchBookings = async () => {
   }
 };
 
+export const fetchBookingUsers = async (userId) => {
+  try {
+    const bookings = await db
+      .collection(BOOKING_COLLECTION)
+      .where("userId", "==", userId)
+      .get();
+    const data = bookings.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    return { success: true, message: "query done", data: data };
+  } catch (error) {
+    return { success: false, message: error?.stack };
+  }
+};
+
 export const roomBooking = async (roomId, checkIn, checkOut) => {
   try {
     const bookings = await db
@@ -71,10 +84,13 @@ export const updateBooking = async (billId, status) => {
     const data = doc.data();
     console.log("data", data);
     if (data.status !== status) {
-      await db.collection(BOOKING_COLLECTION).doc(doc.id).set({
-        ...data,
-        status,
-      });
+      await db
+        .collection(BOOKING_COLLECTION)
+        .doc(doc.id)
+        .set({
+          ...data,
+          status,
+        });
     }
   }
 };

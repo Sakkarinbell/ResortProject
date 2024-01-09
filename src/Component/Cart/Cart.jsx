@@ -42,6 +42,11 @@ function Cart({ carts, onRemove }) {
       alert(error.message);
     }
   };
+  const formatDate = (date) => {
+    if (!date) return "-";
+    const [year, month, day] = date.split("-");
+    return `${day}-${month}-${year}`;
+  };
   return (
     <div className="page-content">
       <div className="holder mt-0">
@@ -55,7 +60,7 @@ function Cart({ carts, onRemove }) {
                     <div className="cart-table-prd-image">
                       <a>
                         <img
-                          src={cart?.coverImage}
+                          src={cart?.coverImage || "/icon.png"}
                           className="img-fluid"
                           alt=""
                         />
@@ -63,16 +68,10 @@ function Cart({ carts, onRemove }) {
                     </div>
                     <div className="cart-table-prd-name">
                       <h5>
-                        <a>
-                          Check In - {cart?.checkIn} 
-                         
-                        </a>
+                        <a>Check In - {formatDate(cart.checkIn)}</a>
                       </h5>
                       <h5>
-                        <a>
-                          
-                        Check Out -  {cart?.checkOut}
-                        </a>
+                        <a>Check Out - {formatDate(cart.checkOut)}</a>
                       </h5>
                       <h2>
                         <a>{cart?.roomName}</a>
@@ -86,7 +85,13 @@ function Cart({ carts, onRemove }) {
                       <b>฿ {cart?.price * cart?.totalRoom * cart?.amountDay}</b>
                     </div>
                     <div className="cart-table-prd-action">
-                      <button className="removecart" onClick={() => onRemove(cart.id)}> x </button>
+                      <button
+                        className="removecart"
+                        onClick={() => onRemove(cart.id)}
+                      >
+                        {" "}
+                        x{" "}
+                      </button>
                       <a className="fa fa-trash" aria-hidden="true"></a>{" "}
                       <a className="fa fa-pencil" aria-hidden="true"></a>
                     </div>

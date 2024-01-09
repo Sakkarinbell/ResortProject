@@ -10,10 +10,16 @@ export const fetchUser = async (userId) => {
   }
 };
 
-export const saveUser = async (userId, firstName, lastName, role = "user") => {
+export const saveUser = async (
+  userId,
+  firstName,
+  lastName,
+  email,
+  role = "user"
+) => {
   await db
     .collection(USER_COLLECTION)
     .doc(userId)
-    .set({ firstName, lastName, role });
+    .set({ firstName, lastName, role, email });
   return { success: true, message: "save user success" };
 };

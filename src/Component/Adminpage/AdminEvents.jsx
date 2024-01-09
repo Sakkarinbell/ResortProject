@@ -41,7 +41,7 @@ function AdminEvents() {
             <tr key={event.id}>
               <td>{index + 1}</td>
               <td>
-                <img src={event.imageURL} width="200px" height="100px" />
+                <img src={event.imageURL || "/icon.png"} width="200px" height="100px" />
               </td>
               <td>{event.eventName}</td>
               <td>{event.description}</td>

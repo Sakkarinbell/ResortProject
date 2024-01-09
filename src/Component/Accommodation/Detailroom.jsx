@@ -72,6 +72,9 @@ function Detailroom() {
       const checkIn = getData(CHECK_IN);
       const checkOut = getData(CHECK_OUT);
       const guest = getData(GUEST);
+      if (!checkIn || !checkOut || !guest) {
+        return alert("กรุณาระบุ วันที่ เช็คอิน/เอ้าท์ และ จำนวนผู้เข้าพัก");
+      }
       const data = {
         userId,
         id,
@@ -106,7 +109,7 @@ function Detailroom() {
               <>
                 <img
                   id={url}
-                  src={url}
+                  src={url || "/icon.png"}
                   alt="#"
                   style={{
                     width: "100%",
@@ -150,7 +153,7 @@ function Detailroom() {
           <div className="bill-info">
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <h2>Your stay</h2>
-              <p className="Availableroom">{remain - amountRoom } Room left!</p>
+              <p className="Availableroom">{remain - amountRoom} Room left!</p>
             </div>
             <div className="checkin-out">
               <h6>Check-in</h6>
@@ -175,9 +178,7 @@ function Detailroom() {
                   <FontAwesomeIcon icon={faSquarePlus}></FontAwesomeIcon>
                 </button>
               </span>
-              <div className="remove">
-                
-              </div>
+              <div className="remove"></div>
             </div>
           </div>
 

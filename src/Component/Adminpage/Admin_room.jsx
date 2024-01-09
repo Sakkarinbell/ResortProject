@@ -160,7 +160,7 @@ function Adminroom() {
             <div>
               {images.map((url) => (
                 <>
-                  <img src={url} key={url} alt="images" width={200} />
+                  <img src={url || "/icon.png"} key={url} alt="images" width={200} />
                   <button className="del-pic" onClick={() => onDeleteImage(url)}>Delete</button>
                 </>
               ))}
