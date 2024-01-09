@@ -45,7 +45,7 @@ function Cart({ carts, onRemove }) {
   const formatDate = (date) => {
     if (!date) return "-";
     const [year, month, day] = date.split("-");
-    return `${day}-${month}-${year}`;
+    return `${month}-${day}-${year}`;
   };
   return (
     <div className="page-content">
@@ -103,7 +103,7 @@ function Cart({ carts, onRemove }) {
                     <h4 className="text-total2">{totalPrice}</h4>
                   </div>
                   <button className="btn-cart" onClick={onCheckout}>
-                    Check Out
+                    BOOKING
                   </button>
                 </div>
               </div>

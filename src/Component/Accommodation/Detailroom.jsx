@@ -99,6 +99,11 @@ function Detailroom() {
       alert(error);
     }
   };
+  const formatDate = (date) => {
+    if (!date) return "-";
+    const [year, month, day] = date.split("-");
+    return `${month}-${day}-${year}`;
+  };
   return (
     <>
       <Navbar />
@@ -160,8 +165,8 @@ function Detailroom() {
               <h6>Check-out</h6>
             </div>
             <div className="checktime">
-              <h6>{checkIn}</h6>
-              <h6>{checkOut}</h6>
+              <h6>{formatDate(checkIn)}</h6>
+              <h6>{formatDate(checkOut)}</h6>
             </div>
             <hr className="line"></hr>
             <div className="roomprice-bill">
