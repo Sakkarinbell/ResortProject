@@ -491,7 +491,7 @@ section {
 }
 
 .contactForm .inputbox input[type="submit"] {
-  width: 100px;
+  width: 100%;
   background: rgb(255, 196, 0);
   color: #fff;
   border: none;

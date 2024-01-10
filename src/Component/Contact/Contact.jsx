@@ -49,7 +49,7 @@ function Contact() {
           </div>
         </div>
         <div className="contactForm">
-          <form action="https://formsubmit.co/timekplus@gmail.com" method="POST">
+          <form action="https://formsubmit.co/nipitpon.ampa@bumail.net" method="POST">
             <h2>Send Message</h2>
             <div className="inputbox">
               <input type="text" name="name" required placeholder="" />
