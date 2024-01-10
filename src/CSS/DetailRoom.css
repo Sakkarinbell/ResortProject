@@ -107,6 +107,7 @@
 
 .btn-book:hover{
   background: #269b24c5;
+  border: 2px solid #269b24c5;
 }
 
 .btn-back{

@@ -44,12 +44,12 @@ function Orders() {
           </tr>
           {bookings.map((booking, index) => (
             <tr key={booking.id}>
-              <td>{index + 1}</td>
-              <td>{booking.roomId}</td>
-              <td>{booking.userId}</td>
-              <td>{booking.phoneNumber}</td>
-              <td>{booking.checkIn}</td>
-              <td>{booking.checkOut}</td>
+              <td className="td1">{index + 1}</td>
+              <td className="td1">{booking.roomId}</td>
+              <td className="td1">{booking.userId}</td>
+              <td className="td1">{booking.phoneNumber}</td>
+              <td className="td1">{booking.checkIn}</td>
+              <td className="td1">{booking.checkOut}</td>
               <td className="guest">{booking.guest}</td>
               <td className="guest">{booking?.status}</td>
             </tr>

@@ -161,12 +161,12 @@ function Detailroom() {
               <p className="Availableroom">{remain - amountRoom} Room left!</p>
             </div>
             <div className="checkin-out">
-              <h6>Check-in</h6>
-              <h6>Check-out</h6>
+              <h4>Check-in</h4>
+              <h4>Check-out</h4>
             </div>
             <div className="checktime">
-              <h6>{formatDate(checkIn)}</h6>
-              <h6>{formatDate(checkOut)}</h6>
+              <h4>{formatDate(checkIn)}</h4>
+              <h4>{formatDate(checkOut)}</h4>
             </div>
             <hr className="line"></hr>
             <div className="roomprice-bill">
