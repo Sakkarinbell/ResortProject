@@ -7,6 +7,8 @@ import { fetchUser } from "../../utils/firestores/userCollection";
 import { Tabs } from "antd";
 import Personal from "./Personal";
 import Resetpassword from "./Resetpassword";
+import Order from "../Order/Orders";
+
 function Account() {
   const userId = useMemo(() => {
     return getData(UUID);
@@ -43,17 +45,42 @@ function Account() {
       <Card>
         <Tabs
           tabPosition="left"
-          items={["Personal", "Change Password"].map((label) => {
+          items={["Personal", "Change Password" , "Booking"].map((label) => {
             return {
               label,
-              key: label,
-              children:
+              key: label, 
+              
+              children : 
                 label === "Personal" ? (
                   <Personal id={userId} user={user} />
-                ) : (
+                ) 
+
+                : 
+                label === "Change Password" ? (
                   <Resetpassword user={user} />
-                ),
+                ) 
+                :
+                
+                (
+                  <Order />
+                )
+                
+               
+                 
+              
+
+                
+                
+                
+                
+                
+              
+              
+              
+                
             };
+             
+
           })}
         />
       </Card>

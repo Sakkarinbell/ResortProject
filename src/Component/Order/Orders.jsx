@@ -29,7 +29,7 @@ function Orders() {
   }
   return (
     <>
-      <Navbar />
+     
       <div>
         <table>
           <tr>

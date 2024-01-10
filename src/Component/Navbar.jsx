@@ -13,7 +13,7 @@ import {
   PATH_LOGIN,
   PATH_NEWS,
   PATH_ACCOUNT,
-  PATH_USER_ORDERS,
+  PATH_CONTACT,
 } from "../utils/constants/path";
 import { getData, removeData } from "../utils/localStorageService";
 import {
@@ -51,11 +51,11 @@ function Navbar() {
         <Link to={PATH_NEWS}>EVENTS</Link>
         <Link to={PATH_GALLERY}>GALLERY</Link>
 
-        {/* <Link to={PATH_CONTACT}>CONTACT</Link> */}
+        <Link to={PATH_CONTACT}>CONTACT</Link> 
 
         {isAuth ? (
           <>
-            <Link to={PATH_USER_ORDERS}>Booking</Link>
+           {/* <Link to={PATH_USER_ORDERS}>Booking</Link>*/}
             <Badge count={carts ? JSON.parse(carts).length : 0}>
               <Link to={PATH_CART}>
                 <FontAwesomeIcon icon={faCartShopping} />
