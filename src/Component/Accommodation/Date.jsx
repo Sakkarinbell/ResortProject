@@ -31,7 +31,7 @@ function SearchRoom({ onSearch }) {
                 />
                 <label>Check In</label>
               </div>
-              <p>Add date</p>
+              <p>Month/Day/Year</p>
             </div>
             <div className="form__group">
               <div className="input__group">
@@ -43,7 +43,7 @@ function SearchRoom({ onSearch }) {
                 />
                 <label>Check Out</label>
               </div>
-              <p>Add date</p>
+              <p>Month/Day/Year</p>
             </div>
             <div className="form__group">
               <div className="input__group">
