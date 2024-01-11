@@ -138,3 +138,7 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
     text-align: right;
     margin-bottom: 15px;
 }
+.btn-default:hover {
+ color: #ff0000;
+ 
+}
