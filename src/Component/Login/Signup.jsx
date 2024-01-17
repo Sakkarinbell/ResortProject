@@ -3,6 +3,7 @@ import {
   faEnvelope,
   faXmark,
   faUser,
+  faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
@@ -17,12 +18,13 @@ function Signup() {
   const [pass, setPass] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [phone, setPhone] = useState("");
   const submit = async (e) => {
     e.preventDefault();
     try {
       const user = await auth.createUserWithEmailAndPassword(email, pass);
       if (user.user.uid) {
-        const sUser = await saveUser(user.user.uid, firstName, lastName, email);
+        const sUser = await saveUser(user.user.uid, firstName, lastName, email,phone);
         console.log("sUser", sUser);
         alert("Account Created succesfully");
       }
@@ -86,6 +88,19 @@ function Signup() {
               onChange={(e) => setLastName(e.target.value)}
             />
             <label>Last Name</label>
+          </div>
+       
+          <div className="input-box">
+            <span className="icon">
+              <FontAwesomeIcon icon={faPhone} />
+            </span>
+            <input
+              type="tel"
+              required
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+            <label>Phone Number</label>
           </div>
           <div className="remember-forgot">
            

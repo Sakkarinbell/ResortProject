@@ -7,11 +7,12 @@ function Personal({ id, user }) {
   const [firstName, setFirstName] = useState(user.firstName || "");
   const [lastName, setLastName] = useState(user.lastName || "");
   const [email, setEmail] = useState(user.email || "");
+  const [phone, setPhone] = useState(user.phone || "");
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
       if (id) {
-        await saveUser(id, firstName, lastName, user.email);
+        await saveUser(id, firstName, lastName, user.email,phone);
         alert("Account update succesfully");
       }
     } catch (error) {
@@ -37,6 +38,15 @@ function Personal({ id, user }) {
           disabled
           className="form-control"
           value={email}
+        />
+      </div>
+      <div className="form-group">
+        <label className="form-label">Phone Number</label>
+        <Input
+          type="tel"
+          disabled
+          className="form-control"
+          value={phone}
         />
       </div>
       <div className="form-group">
