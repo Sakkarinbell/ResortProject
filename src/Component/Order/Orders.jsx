@@ -49,7 +49,7 @@ function Orders() {
               <td className="td1">
                 {booking.user.firstName} {booking.user.lastName}
               </td>
-              <td className="td1">{booking.phoneNumber}</td>
+              <td className="td1">{booking.user?.phone || " - "}</td>
               <td className="td1">{booking.checkIn}</td>
               <td className="td1">{booking.checkOut}</td>
               <td className="guest">{booking.guest}</td>

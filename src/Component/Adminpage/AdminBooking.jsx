@@ -40,7 +40,7 @@ function Adminstatusroom() {
               <td>
                 {booking.user.firstName} {booking.user.lastName}
               </td>
-              <td>{booking.phoneNumber}</td>
+              <td>{booking.user?.phone || " - "}</td>
               <td>{booking.checkIn}</td>
               <td>{booking.checkOut}</td>
               <td className="guest">{booking.guest}</td>
