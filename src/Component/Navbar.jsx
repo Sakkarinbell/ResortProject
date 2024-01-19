@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faCartShopping } from "@fortawesome/free-solid-svg-icons";
@@ -23,12 +24,15 @@ import {
   ROLE,
   UUID,
 } from "../utils/constants/storage";
+import { useState } from "react";
+import { useEffect } from "react";
 // import { PATH_NEWS } from "../utils/constants/path";
 
-function Navbar() {
+function Navbar({ isGetCarts }) {
   const navigate = useNavigate();
   const isAuth = getData(UUID);
-  const carts = getData(CART);
+  // const carts = getData(CART);
+  const [carts, setCarts] = useState(getData(CART));
   const onLogout = () => {
     removeData(UUID);
     removeData(ROLE);
@@ -37,6 +41,10 @@ function Navbar() {
     removeData(CHECK_OUT);
     navigate(PATH_HOME);
   };
+  useEffect(() => {
+    console.log('render carts');
+    setCarts(getData(CART));
+  }, [isGetCarts]);
   return (
     <header className="head">
       <img
@@ -51,11 +59,11 @@ function Navbar() {
         <Link to={PATH_NEWS}>EVENTS</Link>
         <Link to={PATH_GALLERY}>GALLERY</Link>
 
-        <Link to={PATH_CONTACT}>CONTACT</Link> 
+        <Link to={PATH_CONTACT}>CONTACT</Link>
 
         {isAuth ? (
           <>
-           {/* <Link to={PATH_USER_ORDERS}>Booking</Link>*/}
+            {/* <Link to={PATH_USER_ORDERS}>Booking</Link>*/}
             <Badge count={carts ? JSON.parse(carts).length : 0}>
               <Link to={PATH_CART}>
                 <FontAwesomeIcon icon={faCartShopping} />
@@ -83,5 +91,9 @@ function Navbar() {
     </header>
   );
 }
+
+Navbar.propTypes = {
+  isGetCarts: PropTypes.bool,
+};
 
 export default Navbar;

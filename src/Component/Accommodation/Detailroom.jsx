@@ -29,6 +29,7 @@ function Detailroom() {
   const checkOut = getData(CHECK_OUT);
   const [amountRoom, setAmountRoom] = useState(0);
   const [remain, setRemain] = useState(0);
+  const [isGetCarts, setIsGetCarts] = useState(false);
   const amountDay = calculateDay(checkIn, checkOut);
 
   useEffect(() => {
@@ -88,6 +89,7 @@ function Detailroom() {
         amountDay,
       };
       const carts = getData(CART);
+      setIsGetCarts(!isGetCarts);
       if (carts) {
         const cartsParse = JSON.parse(carts);
         const newCarts = [...cartsParse, data];
@@ -106,7 +108,7 @@ function Detailroom() {
   };
   return (
     <>
-      <Navbar />
+      <Navbar isGetCarts={isGetCarts} />
       <section className="container-detail">
         <div className="slide-container-room">
           <div className="slider-room">
