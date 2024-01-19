@@ -25,8 +25,8 @@ function Adminstatusroom() {
         <table>
           <tr>
             <th>NO.</th>
-            <th>Room ID</th>
-            <th>User ID</th>
+            <th>Room Name</th>
+            <th>User </th>
             <th>Phone number</th>
             <th>Check in</th>
             <th>Check out</th>
@@ -36,8 +36,10 @@ function Adminstatusroom() {
           {bookings.map((booking, index) => (
             <tr key={booking.id}>
               <td>{index + 1}</td>
-              <td>{booking.roomId}</td>
-              <td>{booking.userId}</td>
+              <td>{booking.room.name}</td>
+              <td>
+                {booking.user.firstName} {booking.user.lastName}
+              </td>
               <td>{booking.phoneNumber}</td>
               <td>{booking.checkIn}</td>
               <td>{booking.checkOut}</td>

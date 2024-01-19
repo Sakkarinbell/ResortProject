@@ -1,11 +1,25 @@
 import { db } from "../../config/firebase";
 import { BOOKING_COLLECTION } from "../constants/db";
+import { fetchRoom } from "./roomCollection";
+import { fetchUser } from "./userCollection";
 
 export const fetchBookings = async () => {
   try {
     const bookings = await db.collection(BOOKING_COLLECTION).get();
-    const data = bookings.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    return { success: true, message: "query done", data: data };
+    const bookingsWithUsersAndRooms = [];
+    for (let index = 0; index < bookings.docs.length; index++) {
+      const doc = bookings.docs[index];
+      const dataDoc = doc.data();
+      const { user } = await fetchUser(dataDoc.userId);
+      const { data: room } = await fetchRoom(dataDoc.roomId);
+      bookingsWithUsersAndRooms.push({ ...dataDoc, user: user.data(), room: room });
+    }
+    // const data = bookings.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    return {
+      success: true,
+      message: "query done",
+      data: bookingsWithUsersAndRooms,
+    };
   } catch (error) {
     return { success: false, message: error?.stack };
   }
@@ -17,8 +31,16 @@ export const fetchBookingUsers = async (userId) => {
       .collection(BOOKING_COLLECTION)
       .where("userId", "==", userId)
       .get();
-    const data = bookings.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    return { success: true, message: "query done", data: data };
+      const bookingsWithUsersAndRooms = [];
+      for (let index = 0; index < bookings.docs.length; index++) {
+        const doc = bookings.docs[index];
+        const dataDoc = doc.data();
+        const { user } = await fetchUser(dataDoc.userId);
+        const { data: room } = await fetchRoom(dataDoc.roomId);
+        bookingsWithUsersAndRooms.push({ ...dataDoc, user: user.data(), room: room });
+      }
+    // const data = bookings.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    return { success: true, message: "query done", data: bookingsWithUsersAndRooms };
   } catch (error) {
     return { success: false, message: error?.stack };
   }

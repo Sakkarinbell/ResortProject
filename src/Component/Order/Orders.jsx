@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { fetchBookingUsers } from "../../utils/firestores/bookingCollection";
-import Navbar from "../Navbar";
+// import Navbar from "../Navbar";
 import { getData } from "../../utils/localStorageService";
 import { UUID } from "../../utils/constants/storage";
 function Orders() {
@@ -27,9 +27,9 @@ function Orders() {
   if (!userId) {
     return <p>Page not found</p>;
   }
+  console.log(bookings);
   return (
     <>
-     
       <div>
         <table>
           <tr>
@@ -45,8 +45,10 @@ function Orders() {
           {bookings.map((booking, index) => (
             <tr key={booking.id}>
               <td className="td1">{index + 1}</td>
-              <td className="td1">{booking.roomId}</td>
-              <td className="td1">{booking.userId}</td>
+              <td className="td1">{booking.room.name}</td>
+              <td className="td1">
+                {booking.user.firstName} {booking.user.lastName}
+              </td>
               <td className="td1">{booking.phoneNumber}</td>
               <td className="td1">{booking.checkIn}</td>
               <td className="td1">{booking.checkOut}</td>
