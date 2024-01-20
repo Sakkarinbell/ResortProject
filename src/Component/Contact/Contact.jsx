@@ -11,7 +11,7 @@ function Contact() {
       <div className="content">
         <h2>Contact Us</h2>
         <p>
-         Fill in the information if you would like to receive news from the resort.
+         Please tell us how to get in touch with you.
         </p>
       </div>
       <div className="container">
@@ -60,7 +60,7 @@ function Contact() {
             </div>
             <div className="inputbox">
               <textarea name="msg" required placeholder=""></textarea>
-              <span>Type your Address...</span>
+              <span>Type your Message...</span>
             </div>
             <div className="inputbox">
               <input type="submit" name="" value="Send" />
