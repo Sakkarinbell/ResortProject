@@ -15,11 +15,12 @@ export const saveUser = async (
   firstName,
   lastName,
   email,
+  phone,
   role = "user"
 ) => {
   await db
     .collection(USER_COLLECTION)
     .doc(userId)
-    .set({ firstName, lastName, role, email });
+    .set({ firstName, lastName, role, email, phone });
   return { success: true, message: "save user success" };
 };
