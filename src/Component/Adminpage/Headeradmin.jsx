@@ -20,7 +20,7 @@ function Adminbar() {
       <nav className="navigation">
         <Link to={PATH_ADMIN_ROOM_LIST}>ROOM</Link>
         <Link to={PATH_ADMIN_BOOKING_LIST}>BOOKING</Link>
-        <Link to={PATH_EVENT_LIST}>EVENTS</Link>
+        <Link to={PATH_EVENT_LIST}>NEWS</Link>
         <Link to={PATH_ADMIN_GALLERY}>GALLERY</Link>
         <button className="btnLogin-popup" onClick={() => onLogout()}>
           LOGOUT
